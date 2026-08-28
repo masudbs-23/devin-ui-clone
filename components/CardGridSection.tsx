@@ -70,15 +70,15 @@ export function CardGridSection() {
           
           {/* Grid 1: Card 1-2 moves UP to 1-1, Card 1-3 moves UP to 1-2 */}
           <motion.div style={{ y: grid1Y }} className="flex flex-col gap-10 mt-0">
-            <div className="bg-[#E3E2E1] p-6 rounded-lg shadow-sm h-[240px]">
+            <div className="bg-[#EFEFEF] p-6 rounded-lg shadow-sm h-[240px]">
               <h4 className="text-lg font-bold mb-2 text-ink">Card 1-1</h4>
               <p className="text-sm text-ink/70">Description</p>
             </div>
-            <motion.div style={{ y: card_1_2_Y }} className="bg-[#E3E2E1] p-6 rounded-lg shadow-sm h-[240px]">
+            <motion.div style={{ y: card_1_2_Y }} className="bg-[#EFEFEF] p-6 rounded-lg shadow-sm h-[240px]">
               <h4 className="text-lg font-bold mb-2 text-ink">Card 1-2</h4>
               <p className="text-sm text-ink/70">Description</p>
             </motion.div>
-            <motion.div style={{ y: card_1_3_Y }} className="bg-[#E3E2E1] p-6 rounded-lg shadow-sm h-[240px]">
+            <motion.div style={{ y: card_1_3_Y }} className="bg-[#EFEFEF] p-6 rounded-lg shadow-sm h-[240px]">
               <h4 className="text-lg font-bold mb-2 text-ink">Card 1-3</h4>
               <p className="text-sm text-ink/70">Description</p>
             </motion.div>
@@ -86,15 +86,15 @@ export function CardGridSection() {
 
           {/* Grid 2: Card 2-2 moves UP to 2-1, Card 2-3 moves UP to 2-2 */}
           <motion.div style={{ y: grid2Y }} className="flex flex-col gap-10 mt-12">
-            <div className="bg-[#E3E2E1] p-6 rounded-lg shadow-sm h-[240px]">
+            <div className="bg-[#EFEFEF] p-6 rounded-lg shadow-sm h-[240px]">
               <h4 className="text-lg font-bold mb-2 text-ink">Card 2-1</h4>
               <p className="text-sm text-ink/70">Description</p>
             </div>
-            <motion.div style={{ y: card_2_2_Y }} className="bg-[#E3E2E1] p-6 rounded-lg shadow-sm h-[240px]">
+            <motion.div style={{ y: card_2_2_Y }} className="bg-[#EFEFEF] p-6 rounded-lg shadow-sm h-[240px]">
               <h4 className="text-lg font-bold mb-2 text-ink">Card 2-2</h4>
               <p className="text-sm text-ink/70">Description</p>
             </motion.div>
-            <motion.div style={{ y: card_2_3_Y }} className="bg-[#E3E2E1] p-6 rounded-lg shadow-sm h-[240px]">
+            <motion.div style={{ y: card_2_3_Y }} className="bg-[#EFEFEF] p-6 rounded-lg shadow-sm h-[240px]">
               <h4 className="text-lg font-bold mb-2 text-ink">Card 2-3</h4>
               <p className="text-sm text-ink/70">Description</p>
             </motion.div>
@@ -103,15 +103,15 @@ export function CardGridSection() {
           {/* Grid 3: Center Column */}
           <div className="flex flex-col gap-8 mt-24">
             <div className="flex flex-row gap-4">
-              <div className="flex-1 bg-[#E3E2E1] p-6 rounded-lg shadow-sm h-[170px]">
+              <div className="flex-1 bg-[#EFEFEF] p-6 rounded-lg shadow-sm h-[170px]">
                 <h4 className="text-lg font-bold mb-2 text-ink">Card 3-1</h4>
                 <p className="text-sm text-ink/70">Description</p>
               </div>
-              <div className="flex-1 bg-[#E3E2E1] p-6 rounded-lg shadow-sm h-[170px]">
+              <div className="flex-1 bg-[#EFEFEF] p-6 rounded-lg shadow-sm h-[170px]">
                 <h4 className="text-lg font-bold mb-2 text-ink">Card 3-2</h4>
                 <p className="text-sm text-ink/70">Description</p>
               </div>
-              <div className="flex-1 bg-[#E3E2E1] p-6 rounded-lg shadow-sm h-[170px]">
+              <div className="flex-1 bg-[#EFEFEF] p-6 rounded-lg shadow-sm h-[170px]">
                 <h4 className="text-lg font-bold mb-2 text-ink">Card 3-3</h4>
                 <p className="text-sm text-ink/70">Description</p>
               </div>
@@ -127,7 +127,7 @@ export function CardGridSection() {
                   {cards3Data.map((card, idx) => (
                     <div
                       key={idx}
-                      className="flex-1 bg-[#E3E2E1] p-6 rounded-lg shadow-sm h-[270px] flex flex-col justify-between"
+                      className="flex-1 bg-[#EFEFEF] p-6 rounded-lg shadow-sm h-[270px] flex flex-col justify-between"
                     >
                       <div>
                         <h4 className="text-lg font-bold mb-2 text-ink">{card.title}</h4>
@@ -142,15 +142,15 @@ export function CardGridSection() {
 
           {/* Grid 4: Card 4-2 moves UP to 4-1, Card 4-3 moves UP to 4-2 */}
           <motion.div style={{ y: grid4Y }} className="flex flex-col gap-10 mt-12">
-            <div className="bg-[#E3E2E1] p-6 rounded-lg shadow-sm h-[240px]">
+            <div className="bg-[#EFEFEF] p-6 rounded-lg shadow-sm h-[240px]">
               <h4 className="text-lg font-bold mb-2 text-ink">Card 4-1</h4>
               <p className="text-sm text-ink/70">Description</p>
             </div>
-            <motion.div style={{ y: card_4_2_Y }} className="bg-[#E3E2E1] p-6 rounded-lg shadow-sm h-[240px]">
+            <motion.div style={{ y: card_4_2_Y }} className="bg-[#EFEFEF] p-6 rounded-lg shadow-sm h-[240px]">
               <h4 className="text-lg font-bold mb-2 text-ink">Card 4-2</h4>
               <p className="text-sm text-ink/70">Description</p>
             </motion.div>
-            <motion.div style={{ y: card_4_3_Y }} className="bg-[#E3E2E1] p-6 rounded-lg shadow-sm h-[240px]">
+            <motion.div style={{ y: card_4_3_Y }} className="bg-[#EFEFEF] p-6 rounded-lg shadow-sm h-[240px]">
               <h4 className="text-lg font-bold mb-2 text-ink">Card 4-3</h4>
               <p className="text-sm text-ink/70">Description</p>
             </motion.div>
@@ -158,15 +158,15 @@ export function CardGridSection() {
 
           {/* Grid 5: Card 5-2 moves UP to 5-1, Card 5-3 moves UP to 5-2 */}
           <motion.div style={{ y: grid5Y }} className="flex flex-col gap-10 mt-0">
-            <div className="bg-[#E3E2E1] p-6 rounded-lg shadow-sm h-[240px]">
+            <div className="bg-[#EFEFEF] p-6 rounded-lg shadow-sm h-[240px]">
               <h4 className="text-lg font-bold mb-2 text-ink">Card 5-1</h4>
               <p className="text-sm text-ink/70">Description</p>
             </div>
-            <motion.div style={{ y: card_5_2_Y }} className="bg-[#E3E2E1] p-6 rounded-lg shadow-sm h-[240px]">
+            <motion.div style={{ y: card_5_2_Y }} className="bg-[#EFEFEF] p-6 rounded-lg shadow-sm h-[240px]">
               <h4 className="text-lg font-bold mb-2 text-ink">Card 5-2</h4>
               <p className="text-sm text-ink/70">Description</p>
             </motion.div>
-            <motion.div style={{ y: card_5_3_Y }} className="bg-[#E3E2E1] p-6 rounded-lg shadow-sm h-[240px]">
+            <motion.div style={{ y: card_5_3_Y }} className="bg-[#EFEFEF] p-6 rounded-lg shadow-sm h-[240px]">
               <h4 className="text-lg font-bold mb-2 text-ink">Card 5-3</h4>
               <p className="text-sm text-ink/70">Description</p>
             </motion.div>
@@ -203,10 +203,10 @@ export function CardGridSection() {
                       opacity: { duration: 0.4, delay: idx * 0.06 },
                       flexGrow: { duration: 0.45, ease: [0.25, 1, 0.5, 1] },
                     }}
-                    className={`p-6 rounded-lg h-[180px] overflow-hidden flex flex-col justify-between cursor-pointer transition-colors ${
+                    className={`p-6 rounded-lg h-[180px] overflow-hidden flex flex-col justify-between cursor-pointer bg-[#EFEFEF] ${
                       isActive
-                        ? "bg-[#D5D4D2] border-2 border-black/10 shadow-md"
-                        : "bg-[#E3E2E1] hover:bg-[#DCDBC9]"
+                        ? "border-2 border-black/10 shadow-md"
+                        : "shadow-sm"
                     }`}
                   >
                     <div>
