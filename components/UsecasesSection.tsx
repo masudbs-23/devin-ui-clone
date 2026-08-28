@@ -63,8 +63,8 @@ const USECASES = [
 
 export function UsecasesSection() {
   return (
-    <section className="px-4 py-20" style={{ backgroundColor: '#F7F6F5' }}>
-      <div className="max-w-[90%] mx-auto">
+    <section className="px-4 py-20 bg-[#E7E7E7]" >
+      <div className="max-w-[75%] mx-auto">
         <div className="text-left mb-12">
           <h2 className="text-4xl md:text-5xl font-bold mb-4 text-ink">
             Use cases

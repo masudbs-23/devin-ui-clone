@@ -13,10 +13,13 @@ export function ClientsSection() {
       <div className="max-w-[90%] mx-auto">
         <div className="flex flex-col items-center text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-ink leading-tight">
-            <span style={{ color: '#7D8092' }} className="text-xl md:text-2xl">Industry leaders choose to</span><br />
-           <span className="text-7xl"> Build with</span> <span className="text-blue-500 text-7xl">Devin</span>
+            <span  className="text-sm md:text-xl text-[#7D8092] font-medium">Industry leaders choose to</span><br />
+          
           </h2>
-          <button className="border border-ink/25 px-6 py-2 rounded-lg font-medium text-ink hover:border-ink/60 transition-colors">
+          <h1>
+             <span className="text-7xl mt-8 font-semibold"> Build with</span> <span className="text-blue-500 text-7xl">Devin</span>
+             </h1>
+          <button className="mt-8 bg-ink border border-ink px-6 py-2  font-normal text-white hover:border-ink/60 transition-colors">
             Hear from our customers
           </button>
         </div>
@@ -25,7 +28,7 @@ export function ClientsSection() {
           {CLIENTS.map((client) => (
             <div
               key={client.name}
-              className="bg-white rounded-lg p-6 flex items-center justify-center shadow-sm hover:shadow-md transition-shadow border border-ink/10"
+              className="bg-[#EFEFEF] rounded-lg p-6 flex items-center justify-center  border border-[#EFEFEF]"
             >
               <div className="text-ink/50 text-sm font-medium">{client.name}</div>
             </div>

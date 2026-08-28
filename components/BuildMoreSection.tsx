@@ -23,7 +23,7 @@ export function BuildMoreSection() {
               <p className="text-ink/70 mb-6 leading-relaxed">
                 Devin Enterprise provides additional capabilities, security and control for your organization.
               </p>
-              <a href="#" className="text-blue-500 hover:underline font-medium">
+              <a href="#" className="underline font-medium">
                 Learn about Devin Enterprise
               </a>
             </div>
