@@ -26,6 +26,10 @@ export function CardGridSection() {
   const card_2_2_Y = useTransform(scrollYProgress, [0, 0.70], [0, -32]);
   const card_2_3_Y = useTransform(scrollYProgress, [0, 0.70], [0, -64]);
 
+  // Card 3-2 & 3-5 start offset higher (-28px) and align into the same position with their row on scroll
+  const card_3_2_Y = useTransform(scrollYProgress, [0, 0.45], [-28, 0]);
+  const card_3_5_Y = useTransform(scrollYProgress, [0, 0.45], [-28, 0]);
+
   const card_4_2_Y = useTransform(scrollYProgress, [0, 0.70], [0, -32]);
   const card_4_3_Y = useTransform(scrollYProgress, [0, 0.70], [0, -64]);
 
@@ -103,15 +107,15 @@ export function CardGridSection() {
           {/* Grid 3: Center Column */}
           <div className="flex flex-col gap-8 mt-24">
             <div className="flex flex-row gap-4">
-              <div className="flex-1 bg-[#EFEFEF] p-6 rounded-lg shadow-sm h-[170px]">
+              <div className="flex-1 bg-[#EFEFEF] p-6 rounded-lg shadow-sm h-[240px]">
                 <h4 className="text-lg font-bold mb-2 text-ink">Card 3-1</h4>
                 <p className="text-sm text-ink/70">Description</p>
               </div>
-              <div className="flex-1 bg-[#EFEFEF] p-6 rounded-lg shadow-sm h-[170px]">
+              <motion.div style={{ y: card_3_2_Y }} className="flex-1 bg-[#EFEFEF] p-6 rounded-lg shadow-sm h-[240px]">
                 <h4 className="text-lg font-bold mb-2 text-ink">Card 3-2</h4>
                 <p className="text-sm text-ink/70">Description</p>
-              </div>
-              <div className="flex-1 bg-[#EFEFEF] p-6 rounded-lg shadow-sm h-[170px]">
+              </motion.div>
+              <div className="flex-1 bg-[#EFEFEF] p-6 rounded-lg shadow-sm h-[240px]">
                 <h4 className="text-lg font-bold mb-2 text-ink">Card 3-3</h4>
                 <p className="text-sm text-ink/70">Description</p>
               </div>
@@ -124,17 +128,21 @@ export function CardGridSection() {
                   style={{ y: cardsTranslateY, scale: cardsScale, opacity: cardsOpacity }}
                   className="flex flex-row gap-4 absolute inset-0 w-full"
                 >
-                  {cards3Data.map((card, idx) => (
-                    <div
-                      key={idx}
-                      className="flex-1 bg-[#EFEFEF] p-6 rounded-lg shadow-sm h-[270px] flex flex-col justify-between"
-                    >
-                      <div>
-                        <h4 className="text-lg font-bold mb-2 text-ink">{card.title}</h4>
-                        <p className="text-sm text-ink/70">{card.desc}</p>
-                      </div>
-                    </div>
-                  ))}
+                  {cards3Data.map((card, idx) => {
+                    const isMiddleCard = idx === 1; // Card 3-5
+                    return (
+                      <motion.div
+                        key={idx}
+                        style={{ y: isMiddleCard ? card_3_5_Y : 0 }}
+                        className="flex-1 bg-[#EFEFEF] p-6 rounded-lg shadow-sm h-[270px] flex flex-col justify-between"
+                      >
+                        <div>
+                          <h4 className="text-lg font-bold mb-2 text-ink">{card.title}</h4>
+                          <p className="text-sm text-ink/70">{card.desc}</p>
+                        </div>
+                      </motion.div>
+                    );
+                  })}
                 </motion.div>
               )}
             </div>
