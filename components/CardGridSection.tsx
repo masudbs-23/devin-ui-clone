@@ -13,22 +13,22 @@ export function CardGridSection() {
     offset: ["start start", "end end"],
   });
 
-  // Parallax offsets for outer grid columns as user scrolls
-  const grid1Y = useTransform(scrollYProgress, [0, 0.6], [0, -70]);
-  const grid2Y = useTransform(scrollYProgress, [0, 0.6], [0, -35]);
-  const grid4Y = useTransform(scrollYProgress, [0, 0.6], [0, -35]);
-  const grid5Y = useTransform(scrollYProgress, [0, 0.6], [0, -70]);
+  // Parallax offsets for outer grid columns as user scrolls through the grid
+  const grid1Y = useTransform(scrollYProgress, [0, 0.8], [0, -80]);
+  const grid2Y = useTransform(scrollYProgress, [0, 0.8], [0, -40]);
+  const grid4Y = useTransform(scrollYProgress, [0, 0.8], [0, -40]);
+  const grid5Y = useTransform(scrollYProgress, [0, 0.8], [0, -80]);
 
-  // Card 3-4, 3-5, 3-6 continuous translation down on scroll before expanding
-  const cardsTranslateY = useTransform(scrollYProgress, [0.08, 0.36], [0, 110]);
-  const cardsScale = useTransform(scrollYProgress, [0.08, 0.36], [1, 1.02]);
-  const cardsOpacity = useTransform(scrollYProgress, [0.32, 0.36], [1, 0.9]);
+  // Card 3-4, 3-5, 3-6 translation down near the end of grid scrolling (0.50 -> 0.75)
+  const cardsTranslateY = useTransform(scrollYProgress, [0.50, 0.75], [0, 140]);
+  const cardsScale = useTransform(scrollYProgress, [0.50, 0.75], [1, 1.03]);
+  const cardsOpacity = useTransform(scrollYProgress, [0.70, 0.75], [1, 0.95]);
 
-  // Trigger layout state transition into expandable bottom accordion
+  // Trigger layout state transition into bottom section ONLY when grid scrolling is ~100% done (latest > 0.75)
   useMotionValueEvent(scrollYProgress, "change", (latest) => {
-    if (latest > 0.35 && !isExpanded) {
+    if (latest > 0.75 && !isExpanded) {
       setIsExpanded(true);
-    } else if (latest <= 0.35 && isExpanded) {
+    } else if (latest <= 0.75 && isExpanded) {
       setIsExpanded(false);
     }
   });
@@ -40,7 +40,7 @@ export function CardGridSection() {
   ];
 
   return (
-    <section ref={sectionRef} className="px-4 py-20 bg-white relative min-h-[1400px] pb-32">
+    <section ref={sectionRef} className="px-4 py-20 bg-white relative min-h-[1800px] pb-32">
       <div className="max-w-[90%] mx-auto relative">
         {/* Sticky Center Title and Description */}
         <div className="sticky top-28 z-0 text-center mb-16 pt-32 pb-24 pointer-events-none">
@@ -104,7 +104,7 @@ export function CardGridSection() {
               </div>
             </div>
 
-            {/* Row 2 inside Grid 3: Card 3-4, 3-5, 3-6 */}
+            {/* Row 2 inside Grid 3: Card 3-4, 3-5, 3-6 (Stays visible in Grid 3 until 100% grid scroll is complete) */}
             <div className="h-[270px] relative">
               {!isExpanded && (
                 <motion.div
@@ -115,7 +115,7 @@ export function CardGridSection() {
                     <motion.div
                       key={card.key}
                       layoutId={card.key}
-                      transition={{ type: "spring", stiffness: 220, damping: 26 }}
+                      transition={{ type: "spring", stiffness: 200, damping: 25 }}
                       className="flex-1 bg-[#E3E2E1] p-6 rounded-lg shadow-sm h-[270px] flex flex-col justify-between"
                     >
                       <div>
@@ -164,13 +164,13 @@ export function CardGridSection() {
         </div>
 
         {/* bottom card section */}
-        {/* Appears when scrolled down! Spans 75% width centered below grid */}
+        {/* Appears when grid section scrolling is 100% completed! Spans 75% width centered below grid */}
         <div className="relative z-20 w-[75vw] mx-auto min-h-[180px] pt-6">
           {isExpanded && (
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ duration: 0.3 }}
+              transition={{ duration: 0.35 }}
               className="flex flex-row gap-4 w-full"
             >
               {cards3Data.map((card, idx) => {
@@ -186,7 +186,7 @@ export function CardGridSection() {
                       flexBasis: "0%",
                     }}
                     transition={{
-                      layout: { type: "spring", stiffness: 220, damping: 26 },
+                      layout: { type: "spring", stiffness: 200, damping: 25 },
                       flexGrow: { duration: 0.45, ease: [0.25, 1, 0.5, 1] },
                     }}
                     className={`p-6 rounded-lg h-[180px] overflow-hidden flex flex-col justify-between cursor-pointer transition-colors ${
@@ -213,4 +213,5 @@ export function CardGridSection() {
     </section>
   );
 }
+
 
