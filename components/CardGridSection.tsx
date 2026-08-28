@@ -19,10 +19,10 @@ export function CardGridSection() {
   const grid4Y = useTransform(scrollYProgress, [0, 0.8], [0, -40]);
   const grid5Y = useTransform(scrollYProgress, [0, 0.8], [0, -80]);
 
-  // Card 3-4, 3-5, 3-6 translation down near the end of grid scrolling (0.50 -> 0.75)
-  const cardsTranslateY = useTransform(scrollYProgress, [0.50, 0.75], [0, 140]);
-  const cardsScale = useTransform(scrollYProgress, [0.50, 0.75], [1, 1.03]);
-  const cardsOpacity = useTransform(scrollYProgress, [0.70, 0.75], [1, 0.95]);
+  // Card 3-4, 3-5, 3-6 continuous translation down near the end of grid scrolling (0.50 -> 0.75)
+  const cardsTranslateY = useTransform(scrollYProgress, [0.50, 0.75], [0, 80]);
+  const cardsScale = useTransform(scrollYProgress, [0.50, 0.75], [1, 1.02]);
+  const cardsOpacity = useTransform(scrollYProgress, [0.70, 0.75], [1, 0]);
 
   // Trigger layout state transition into bottom section ONLY when grid scrolling is ~100% done (latest > 0.75)
   useMotionValueEvent(scrollYProgress, "change", (latest) => {
@@ -34,9 +34,9 @@ export function CardGridSection() {
   });
 
   const cards3Data = [
-    { id: 0, key: "card-3-4", title: "Card 3-4", desc: "Description for Card 3-4" },
-    { id: 1, key: "card-3-5", title: "Card 3-5", desc: "Description for Card 3-5" },
-    { id: 2, key: "card-3-6", title: "Card 3-6", desc: "Description for Card 3-6" },
+    { id: 0, title: "Card 3-4", desc: "Description for Card 3-4" },
+    { id: 1, title: "Card 3-5", desc: "Description for Card 3-5" },
+    { id: 2, title: "Card 3-6", desc: "Description for Card 3-6" },
   ];
 
   return (
@@ -104,25 +104,23 @@ export function CardGridSection() {
               </div>
             </div>
 
-            {/* Row 2 inside Grid 3: Card 3-4, 3-5, 3-6 (Stays visible in Grid 3 until 100% grid scroll is complete) */}
+            {/* Row 2 inside Grid 3: Card 3-4, 3-5, 3-6 (Stays in Grid 3 during grid scroll) */}
             <div className="h-[270px] relative">
               {!isExpanded && (
                 <motion.div
                   style={{ y: cardsTranslateY, scale: cardsScale, opacity: cardsOpacity }}
                   className="flex flex-row gap-4 absolute inset-0 w-full"
                 >
-                  {cards3Data.map((card) => (
-                    <motion.div
-                      key={card.key}
-                      layoutId={card.key}
-                      transition={{ type: "spring", stiffness: 200, damping: 25 }}
+                  {cards3Data.map((card, idx) => (
+                    <div
+                      key={idx}
                       className="flex-1 bg-[#E3E2E1] p-6 rounded-lg shadow-sm h-[270px] flex flex-col justify-between"
                     >
                       <div>
                         <h4 className="text-lg font-bold mb-2 text-ink">{card.title}</h4>
                         <p className="text-sm text-ink/70">{card.desc}</p>
                       </div>
-                    </motion.div>
+                    </div>
                   ))}
                 </motion.div>
               )}
@@ -164,29 +162,33 @@ export function CardGridSection() {
         </div>
 
         {/* bottom card section */}
-        {/* Appears when grid section scrolling is 100% completed! Spans 75% width centered below grid */}
-        <div className="relative z-20 w-[75vw] mx-auto min-h-[180px] pt-6">
+        {/* Appears when grid section scrolling is 100% completed! Drops strictly from TOP to BOTTOM */}
+        <div className="relative z-20 w-[75vw] mx-auto min-h-[180px] pt-6 overflow-hidden">
           {isExpanded && (
             <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.35 }}
+              initial={{ y: -70, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              exit={{ y: -70, opacity: 0 }}
+              transition={{ duration: 0.45, ease: [0.25, 1, 0.5, 1] }}
               className="flex flex-row gap-4 w-full"
             >
               {cards3Data.map((card, idx) => {
                 const isActive = activeCardIndex === idx;
                 return (
                   <motion.div
-                    key={card.key}
-                    layoutId={card.key}
+                    key={idx}
                     onClick={() => setActiveCardIndex(idx)}
+                    initial={{ y: -40, opacity: 0 }}
                     animate={{
+                      y: 0,
+                      opacity: 1,
                       flexGrow: isActive ? 7 : 1.5,
                       flexShrink: 1,
                       flexBasis: "0%",
                     }}
                     transition={{
-                      layout: { type: "spring", stiffness: 200, damping: 25 },
+                      y: { duration: 0.4, delay: idx * 0.06, ease: "easeOut" },
+                      opacity: { duration: 0.4, delay: idx * 0.06 },
                       flexGrow: { duration: 0.45, ease: [0.25, 1, 0.5, 1] },
                     }}
                     className={`p-6 rounded-lg h-[180px] overflow-hidden flex flex-col justify-between cursor-pointer transition-colors ${
@@ -213,5 +215,6 @@ export function CardGridSection() {
     </section>
   );
 }
+
 
 
