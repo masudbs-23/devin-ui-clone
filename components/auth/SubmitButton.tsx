@@ -4,7 +4,7 @@ interface SubmitButtonProps {
 
 export function SubmitButton({ children }: SubmitButtonProps) {
   return (
-    <button className="w-full bg-white text-black font-medium rounded-lg py-3 hover:bg-white/90 transition-colors">
+    <button className="w-full md:w-[358px] bg-white text-black font-medium rounded-[6px] h-[32px] hover:bg-white/90 transition-colors">
       {children}
     </button>
   );

@@ -14,7 +14,7 @@ export function EmailInput({ id = 'email', label = 'Email address', placeholder 
         id={id}
         type="email"
         placeholder={placeholder}
-        className="w-full bg-white/5 border border-white/10 rounded-lg py-3 px-4 text-white placeholder:text-white/30 focus:outline-none focus:border-white/30 transition-colors"
+        className="w-full md:w-[358px] bg-white/5 border border-white/10 rounded-[6px] h-[32px] px-4 text-white placeholder:text-white/30 focus:outline-none focus:border-white/30 transition-colors"
       />
     </div>
   );
