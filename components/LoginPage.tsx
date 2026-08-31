@@ -49,7 +49,7 @@ export function LoginPage() {
 
       <p className="mt-8 text-center text-white/50 text-sm">
         Don't have an account?{' '}
-        <a href="/auth/signup" className="text-white hover:underline">
+        <a href="/signup" className="text-white hover:underline">
           Sign up
         </a>
       </p>

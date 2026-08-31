@@ -49,7 +49,7 @@ export function SignupPage() {
 
       <p className="mt-8 text-center text-white/50 text-sm">
         Already have an account?{' '}
-        <a href="/auth/login" className="text-white hover:underline">
+        <a href="/login" className="text-white hover:underline">
           Log in
         </a>
       </p>

@@ -5,7 +5,7 @@ import {
   LearnWorkSection,
   CardGridSection,
   BuildMoreSection,
-} from "../components";
+} from "../../components";
 
 export default function Home() {
   return (
