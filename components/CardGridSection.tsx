@@ -57,8 +57,8 @@ export function CardGridSection() {
   ];
 
   return (
-    <section ref={sectionRef} className="px-4 py-20 bg-white relative min-h-[1600px] pb-32">
-      <div className="max-w-[90%] mx-auto relative">
+    <section ref={sectionRef} className="px-4 py-20 bg-white relative min-h-[1600px] pb-32 w-full">
+      <div className="w-full mx-auto relative">
         {/* Sticky Center Title and Description */}
         <div className="sticky top-28 z-0 text-center mb-16 pt-32 pb-64 pointer-events-none">
           <h2 className="text-4xl md:text-5xl font-bold mb-4 text-ink pointer-events-auto">
@@ -70,59 +70,59 @@ export function CardGridSection() {
         </div>
 
         {/* Full Width Card Grid */}
-        <div className="relative z-10 grid grid-cols-1 md:grid-cols-[1fr_1fr_2fr_1fr_1fr] gap-6 items-start mb-16">
+        <div className="relative z-10 grid grid-cols-1 md:grid-cols-[1fr_1fr_2fr_1fr_1fr] gap-3 items-start mb-16">
           
           {/* Grid 1: Positioned significantly higher initially (-mt-36) */}
-          <motion.div style={{ y: grid1Y }} className="flex flex-col gap-10 -mt-36">
-            <div className="bg-[#EFEFEF] p-6 rounded-xl h-[240px]">
+          <motion.div style={{ y: grid1Y }} className="flex flex-col gap-6 -mt-36">
+            <div className="bg-[#EFEFEF] p-6 rounded-2xl h-[425px] w-[265px]">
               <h4 className="text-lg font-bold mb-2 text-ink">Card 1-1</h4>
               <p className="text-sm text-ink/70">Description</p>
             </div>
-            <motion.div style={{ y: card_1_2_Y }} className="bg-[#EFEFEF] p-6 rounded-xl h-[240px]">
+            <motion.div style={{ y: card_1_2_Y }} className="bg-[#EFEFEF] p-6 rounded-2xl h-[265px] w-[265px]">
               <h4 className="text-lg font-bold mb-2 text-ink">Card 1-2</h4>
               <p className="text-sm text-ink/70">Description</p>
             </motion.div>
-            <motion.div style={{ y: card_1_3_Y }} className="bg-[#EFEFEF] p-6 rounded-xl h-[240px]">
+            <motion.div style={{ y: card_1_3_Y }} className="bg-[#EFEFEF] p-6 rounded-2xl h-[425px] w-[265px]">
               <h4 className="text-lg font-bold mb-2 text-ink">Card 1-3</h4>
               <p className="text-sm text-ink/70">Description</p>
             </motion.div>
           </motion.div>
 
           {/* Grid 2: Positioned significantly higher initially (-mt-20) */}
-          <motion.div style={{ y: grid2Y }} className="flex flex-col gap-10 -mt-20">
-            <div className="bg-[#EFEFEF] p-6 rounded-xl h-[240px]">
+          <motion.div style={{ y: grid2Y }} className="flex flex-col gap-6 -mt-20">
+            <div className="bg-[#EFEFEF] p-6 rounded-2xl h-[425px] w-[265px]">
               <h4 className="text-lg font-bold mb-2 text-ink">Card 2-1</h4>
               <p className="text-sm text-ink/70">Description</p>
             </div>
-            <motion.div style={{ y: card_2_2_Y }} className="bg-[#EFEFEF] p-6 rounded-xl h-[240px]">
+            <motion.div style={{ y: card_2_2_Y }} className="bg-[#EFEFEF] p-6 rounded-2xl h-[265px] w-[265px]">
               <h4 className="text-lg font-bold mb-2 text-ink">Card 2-2</h4>
               <p className="text-sm text-ink/70">Description</p>
             </motion.div>
-            <motion.div style={{ y: card_2_3_Y }} className="bg-[#EFEFEF] p-6 rounded-xl h-[240px]">
+            <motion.div style={{ y: card_2_3_Y }} className="bg-[#EFEFEF] p-6 rounded-2xl h-[425px] w-[265px]">
               <h4 className="text-lg font-bold mb-2 text-ink">Card 2-3</h4>
               <p className="text-sm text-ink/70">Description</p>
             </motion.div>
           </motion.div>
 
           {/* Grid 3: Center Column */}
-          <div className="flex flex-col gap-8 mt-24">
+          <div className="flex flex-col gap-4 mt-24">
             <div className="flex flex-row gap-4">
-              <div className="flex-1 bg-[#EFEFEF] p-6 rounded-xl h-[240px]">
+              <div className="flex-1 bg-[#EFEFEF] p-6 rounded-2xl h-[265px] w-[265px]">
                 <h4 className="text-lg font-bold mb-2 text-ink">Card 3-1</h4>
                 <p className="text-sm text-ink/70">Description</p>
               </div>
-              <motion.div style={{ y: card_3_2_Y }} className="flex-1 bg-[#EFEFEF] p-6 rounded-xl h-[240px]">
+              <motion.div style={{ y: card_3_2_Y }} className="flex-1 bg-[#EFEFEF] p-6 rounded-2xl h-[265px] w-[265px]">
                 <h4 className="text-lg font-bold mb-2 text-ink">Card 3-2</h4>
                 <p className="text-sm text-ink/70">Description</p>
               </motion.div>
-              <div className="flex-1 bg-[#EFEFEF] p-6 rounded-xl h-[240px]">
+              <div className="flex-1 bg-[#EFEFEF] p-6 rounded-2xl h-[265px] w-[265px]">
                 <h4 className="text-lg font-bold mb-2 text-ink">Card 3-3</h4>
                 <p className="text-sm text-ink/70">Description</p>
               </div>
             </div>
 
             {/* Row 2 inside Grid 3: Card 3-4, 3-5, 3-6 */}
-            <div className="h-[270px] relative">
+            <div className="h-[265px] relative">
               {!isExpanded && (
                 <motion.div
                   style={{ y: cardsTranslateY, scale: cardsScale, opacity: cardsOpacity }}
@@ -134,7 +134,7 @@ export function CardGridSection() {
                       <motion.div
                         key={idx}
                         style={{ y: isMiddleCard ? card_3_5_Y : 0 }}
-                        className="flex-1 bg-[#EFEFEF] p-6 rounded-xl h-[270px] flex flex-col justify-between"
+                        className="flex-1 bg-[#EFEFEF] p-6 rounded-2xl h-[265px] w-[265px] flex flex-col justify-between"
                       >
                         <div>
                           <h4 className="text-lg font-bold mb-2 text-ink">{card.title}</h4>
@@ -149,32 +149,32 @@ export function CardGridSection() {
           </div>
 
           {/* Grid 4: Positioned significantly higher initially (-mt-20) */}
-          <motion.div style={{ y: grid4Y }} className="flex flex-col gap-10 -mt-20">
-            <div className="bg-[#EFEFEF] p-6 rounded-xl h-[240px]">
+          <motion.div style={{ y: grid4Y }} className="flex flex-col gap-6 -mt-20">
+            <div className="bg-[#EFEFEF] p-6 rounded-2xl h-[425px] w-[265px]">
               <h4 className="text-lg font-bold mb-2 text-ink">Card 4-1</h4>
               <p className="text-sm text-ink/70">Description</p>
             </div>
-            <motion.div style={{ y: card_4_2_Y }} className="bg-[#EFEFEF] p-6 rounded-xl h-[240px]">
+            <motion.div style={{ y: card_4_2_Y }} className="bg-[#EFEFEF] p-6 rounded-2xl h-[265px] w-[265px]">
               <h4 className="text-lg font-bold mb-2 text-ink">Card 4-2</h4>
               <p className="text-sm text-ink/70">Description</p>
             </motion.div>
-            <motion.div style={{ y: card_4_3_Y }} className="bg-[#EFEFEF] p-6 rounded-xl h-[240px]">
+            <motion.div style={{ y: card_4_3_Y }} className="bg-[#EFEFEF] p-6 rounded-2xl h-[425px] w-[265px]">
               <h4 className="text-lg font-bold mb-2 text-ink">Card 4-3</h4>
               <p className="text-sm text-ink/70">Description</p>
             </motion.div>
           </motion.div>
 
           {/* Grid 5: Positioned significantly higher initially (-mt-36) */}
-          <motion.div style={{ y: grid5Y }} className="flex flex-col gap-10 -mt-36">
-            <div className="bg-[#EFEFEF] p-6 rounded-xl h-[240px]">
+          <motion.div style={{ y: grid5Y }} className="flex flex-col gap-6 -mt-36">
+            <div className="bg-[#EFEFEF] p-6 rounded-2xl h-[425px] w-[265px]">
               <h4 className="text-lg font-bold mb-2 text-ink">Card 5-1</h4>
               <p className="text-sm text-ink/70">Description</p>
             </div>
-            <motion.div style={{ y: card_5_2_Y }} className="bg-[#EFEFEF] p-6 rounded-xl h-[240px]">
+            <motion.div style={{ y: card_5_2_Y }} className="bg-[#EFEFEF] p-6 rounded-2xl h-[265px] w-[265px]">
               <h4 className="text-lg font-bold mb-2 text-ink">Card 5-2</h4>
               <p className="text-sm text-ink/70">Description</p>
             </motion.div>
-            <motion.div style={{ y: card_5_3_Y }} className="bg-[#EFEFEF] p-6 rounded-xl h-[240px]">
+            <motion.div style={{ y: card_5_3_Y }} className="bg-[#EFEFEF] p-6 rounded-2xl h-[425px] w-[265px]">
               <h4 className="text-lg font-bold mb-2 text-ink">Card 5-3</h4>
               <p className="text-sm text-ink/70">Description</p>
             </motion.div>
@@ -183,7 +183,7 @@ export function CardGridSection() {
         </div>
 
         {/* bottom card section */}
-        <div className="relative z-20 w-[75vw] mx-auto min-h-[500px] pt-6 overflow-hidden">
+        <div className="relative z-20 w-full mx-auto min-h-[265px] pt-6 overflow-hidden">
           <AnimatePresence mode="wait">
             {isExpanded && (
               <motion.div
@@ -219,7 +219,7 @@ export function CardGridSection() {
                       exit={{
                         // Phase 1: Shrink to grid card size
                         flexGrow: 1,
-                        height: 270,
+                        height: 265,
                         scale: 0.95,
                         // Phase 2: Move back to grid position
                         y: -200,
@@ -238,7 +238,7 @@ export function CardGridSection() {
                         scale: { duration: 0.5, delay: idx * 0.08 },
                         flexGrow: { duration: 0.3, ease: [0.25, 1, 0.5, 1] },
                       }}
-                      className={`p-6 rounded-xl h-[500px] overflow-hidden flex flex-col justify-between cursor-pointer bg-[#EFEFEF] `}
+                      className={`p-6 rounded-2xl h-[265px] overflow-hidden flex flex-col justify-between cursor-pointer bg-[#EFEFEF] `}
                     >
                       <div>
                         <h4 className="text-lg font-bold mb-2 text-ink whitespace-nowrap overflow-hidden text-ellipsis">
