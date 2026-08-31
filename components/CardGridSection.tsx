@@ -57,8 +57,8 @@ export function CardGridSection() {
   ];
 
   return (
-    <section ref={sectionRef} className="px-4 py-20 bg-white relative min-h-[1600px] pb-32 w-full">
-      <div className="w-full mx-auto relative">
+    <section ref={sectionRef} className="py-20 bg-white relative min-h-[1600px] pb-32 w-full">
+      <div className="w-full mx-auto relative px-4">
         {/* Sticky Center Title and Description */}
         <div className="sticky top-28 z-0 text-center mb-16 pt-32 pb-64 pointer-events-none">
           <h2 className="text-4xl md:text-5xl font-bold mb-4 text-ink pointer-events-auto">
@@ -70,7 +70,7 @@ export function CardGridSection() {
         </div>
 
         {/* Full Width Card Grid */}
-        <div className="relative z-10 grid grid-cols-1 md:grid-cols-[1fr_1fr_2fr_1fr_1fr] gap-3 items-start mb-16">
+        <div className="relative z-10 grid grid-cols-1 md:grid-cols-[auto_1fr_2fr_1fr_auto] gap-3 items-start mb-16 justify-center">
           
           {/* Grid 1: Positioned significantly higher initially (-mt-36) */}
           <motion.div style={{ y: grid1Y }} className="flex flex-col gap-6 -mt-36">
