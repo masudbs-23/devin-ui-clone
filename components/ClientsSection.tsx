@@ -19,10 +19,10 @@ export function ClientsSection() {
           </button>
         </header>
 
-        <ul className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4" role="list">
+        <ul className="grid grid-cols-3 md:grid-cols-5 gap-4" role="list">
           {CLIENTS.map((client) => (
             <li key={client.name}>
-              <div className="bg-[#EFEFEF] rounded-lg p-6 flex items-center justify-center border border-[#EFEFEF] h-24">
+              <div className="bg-[#EFEFEF] rounded-[16px] flex items-center justify-center border border-[#EFEFEF] h-[40px] md:h-[69px] lg:h-[125px]">
                 <div className="text-ink/50 text-sm font-medium">{client.name}</div>
               </div>
             </li>
