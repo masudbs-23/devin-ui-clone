@@ -70,7 +70,7 @@ export function CardGridSection() {
         </div>
 
         {/* Full Width Card Grid */}
-        <div className="relative z-10 grid grid-cols-1 md:grid-cols-[auto_1fr_2fr_1fr_auto] gap-3 items-start mb-16 justify-center">
+        <div className="relative z-10 grid grid-cols-1 md:grid-cols-[auto_1fr_2fr_1fr_auto] gap-6 items-start mb-16 justify-center">
           
           {/* Grid 1: Positioned significantly higher initially (-mt-36) */}
           <motion.div style={{ y: grid1Y }} className="flex flex-col gap-6 -mt-36">
@@ -183,7 +183,7 @@ export function CardGridSection() {
         </div>
 
         {/* bottom card section */}
-        <div className="relative z-20 w-full mx-auto min-h-[265px] pt-6 overflow-hidden">
+        <div className="relative z-20 w-full mx-auto min-h-[675px] pt-6 overflow-hidden">
           <AnimatePresence mode="wait">
             {isExpanded && (
               <motion.div
@@ -238,7 +238,7 @@ export function CardGridSection() {
                         scale: { duration: 0.5, delay: idx * 0.08 },
                         flexGrow: { duration: 0.3, ease: [0.25, 1, 0.5, 1] },
                       }}
-                      className={`p-6 rounded-2xl h-[265px] overflow-hidden flex flex-col justify-between cursor-pointer bg-[#EFEFEF] `}
+                      className={`p-6 rounded-2xl h-[675px] overflow-hidden flex flex-col justify-between cursor-pointer bg-[#EFEFEF] `}
                     >
                       <div>
                         <h4 className="text-lg font-bold mb-2 text-ink whitespace-nowrap overflow-hidden text-ellipsis">
