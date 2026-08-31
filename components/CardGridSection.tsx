@@ -1,11 +1,11 @@
 "use client";
 
 import React, { useRef, useState } from "react";
-import { motion, useScroll, useTransform, useMotionValueEvent } from "framer-motion";
+import { motion, useScroll, useTransform, useMotionValueEvent, AnimatePresence } from "framer-motion";
 
 export function CardGridSection() {
   const sectionRef = useRef<HTMLDivElement>(null);
-  const [activeCardIndex, setActiveCardIndex] = useState<number>(0);
+  const [activeCardIndex, setActiveCardIndex] = useState<number>(1);
   const [isExpanded, setIsExpanded] = useState<boolean>(false);
 
   const { scrollYProgress } = useScroll({
@@ -183,49 +183,77 @@ export function CardGridSection() {
         </div>
 
         {/* bottom card section */}
-        <div className="relative z-20 w-[75vw] mx-auto min-h-[180px] pt-6 overflow-hidden">
-          {isExpanded && (
-            <motion.div
-              initial={{ y: -70, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              exit={{ y: -70, opacity: 0 }}
-              transition={{ duration: 0.45, ease: [0.25, 1, 0.5, 1] }}
-              className="flex flex-row gap-4 w-full"
-            >
-              {cards3Data.map((card, idx) => {
-                const isActive = activeCardIndex === idx;
-                return (
-                  <motion.div
-                    key={idx}
-                    onClick={() => setActiveCardIndex(idx)}
-                    initial={{ y: -40, opacity: 0 }}
-                    animate={{
-                      y: 0,
-                      opacity: 1,
-                      flexGrow: isActive ? 7 : 1.5,
-                      flexShrink: 1,
-                      flexBasis: "0%",
-                    }}
-                    transition={{
-                      y: { duration: 0.4, delay: idx * 0.06, ease: "easeOut" },
-                      opacity: { duration: 0.4, delay: idx * 0.06 },
-                      flexGrow: { duration: 0.45, ease: [0.25, 1, 0.5, 1] },
-                    }}
-                    className={`p-6 rounded-xl h-[180px] overflow-hidden flex flex-col justify-between cursor-pointer bg-[#EFEFEF] `}
-                  >
-                    <div>
-                      <h4 className="text-lg font-bold mb-2 text-ink whitespace-nowrap overflow-hidden text-ellipsis">
-                        {card.title}
-                      </h4>
-                      <p className="text-sm text-ink/70">
-                        {card.desc}
-                      </p>
-                    </div>
-                  </motion.div>
-                );
-              })}
-            </motion.div>
-          )}
+        <div className="relative z-20 w-[75vw] mx-auto min-h-[500px] pt-6 overflow-hidden">
+          <AnimatePresence mode="wait">
+            {isExpanded && (
+              <motion.div
+                initial={{ y: 100, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                exit={{ 
+                  y: -100, 
+                  opacity: 0,
+                  transition: { duration: 0.6, ease: [0.25, 1, 0.5, 1] }
+                }}
+                transition={{ duration: 0.5, ease: [0.25, 1, 0.5, 1] }}
+                className="flex flex-row gap-4 w-full"
+              >
+                {cards3Data.map((card, idx) => {
+                  const isActive = activeCardIndex === idx;
+                  return (
+                    <motion.div
+                      key={idx}
+                      onClick={() => setActiveCardIndex(idx)}
+                      style={{ 
+                        flexGrow: isActive ? 5 : 1,
+                        flexShrink: 1,
+                        flexBasis: "0%",
+                      }}
+                      whileHover={{ scale: 1.02 }}
+                      whileTap={{ scale: 0.98 }}
+                      initial={{ y: 60, opacity: 0, scale: 0.9 }}
+                      animate={{
+                        y: 0,
+                        opacity: 1,
+                        scale: 1,
+                      }}
+                      exit={{
+                        // Phase 1: Shrink to grid card size
+                        flexGrow: 1,
+                        height: 270,
+                        scale: 0.95,
+                        // Phase 2: Move back to grid position
+                        y: -200,
+                        opacity: 0,
+                        transition: {
+                          flexGrow: { duration: 0.3, ease: [0.25, 1, 0.5, 1] },
+                          height: { duration: 0.3, ease: [0.25, 1, 0.5, 1] },
+                          scale: { duration: 0.3, ease: [0.25, 1, 0.5, 1] },
+                          y: { duration: 0.3, delay: 0.3, ease: [0.25, 1, 0.5, 1] },
+                          opacity: { duration: 0.3, delay: 0.3, ease: [0.25, 1, 0.5, 1] },
+                        }
+                      }}
+                      transition={{
+                        y: { duration: 0.5, delay: idx * 0.08, ease: "easeOut" },
+                        opacity: { duration: 0.5, delay: idx * 0.08 },
+                        scale: { duration: 0.5, delay: idx * 0.08 },
+                        flexGrow: { duration: 0.3, ease: [0.25, 1, 0.5, 1] },
+                      }}
+                      className={`p-6 rounded-xl h-[500px] overflow-hidden flex flex-col justify-between cursor-pointer bg-[#EFEFEF] `}
+                    >
+                      <div>
+                        <h4 className="text-lg font-bold mb-2 text-ink whitespace-nowrap overflow-hidden text-ellipsis">
+                          {card.title}
+                        </h4>
+                        <p className="text-sm text-ink/70">
+                          {card.desc}
+                        </p>
+                      </div>
+                    </motion.div>
+                  );
+                })}
+              </motion.div>
+            )}
+          </AnimatePresence>
         </div>
       </div>
     </section>

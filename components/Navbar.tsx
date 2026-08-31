@@ -26,7 +26,7 @@ export function Navbar() {
   }, [open]);
 
   return (
-    <header className="sticky top-0 z-50 w-full min-[940px]:bg-page/85">
+    <header className="sticky top-0 z-50 w-full min-[940px]:bg-[#F7F6F5]">
       <div className="site-container">
         <div className="mx-auto flex h-[68px] max-w-[1320px] items-center gap-8">
           <a href="/" aria-label="Devin home" className="shrink-0 text-ink">
