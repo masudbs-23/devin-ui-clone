@@ -4,13 +4,14 @@ import { useEffect, useState } from "react";
 import { ChevronDown, Menu, X } from "lucide-react";
 import { DevinMark } from "./BrandIcon";
 import Link from "next/link";
+import type { NavItem } from "../types";
 
-const NAV = [
-  { label: "Product", hasMenu: true },
-  { label: "Solutions", hasMenu: true },
-  { label: "Customers", hasMenu: false },
-  { label: "Resources", hasMenu: true },
-  { label: "Pricing", hasMenu: false },
+const NAV: NavItem[] = [
+  { label: "Product", hasMenu: true, href: "/product" },
+  { label: "Solutions", hasMenu: true, href: "/solutions" },
+  { label: "Customers", hasMenu: false, href: "/customers" },
+  { label: "Resources", hasMenu: true, href: "/resources" },
+  { label: "Pricing", hasMenu: false, href: "/pricing" },
 ];
 
 export function Navbar() {
@@ -29,9 +30,9 @@ export function Navbar() {
     <header className="sticky top-0 z-50 w-full min-[940px]:bg-[#F7F6F5]">
       <div className="site-container">
         <div className="mx-auto flex h-[68px] max-w-[1320px] items-center gap-8">
-          <a href="/" aria-label="Devin home" className="shrink-0 text-ink">
+          <Link href="/" aria-label="Puku home" className="shrink-0 text-ink">
             <DevinMark className="h-[22px] w-[22px]" />
-          </a>
+          </Link>
 
           <nav aria-label="Main" className="hidden items-center gap-1 min-[940px]:flex">
             {NAV.map((item) => (
