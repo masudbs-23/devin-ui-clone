@@ -60,7 +60,7 @@ export function CardGridSection() {
     <section ref={sectionRef} className="py-20 bg-white relative min-h-[1600px] pb-32 w-full">
       <div className="w-full mx-auto relative px-4">
         {/* Sticky Center Title and Description */}
-        <div className="sticky top-28 z-0 text-center mb-16 pt-32 pb-64 pointer-events-none">
+        <div className={`${!isExpanded ? 'sticky top-28' : ''} z-0 text-center mb-16 pt-32 pb-64 pointer-events-none`}>
           <h2 className="text-4xl md:text-5xl font-bold mb-4 text-ink pointer-events-auto">
             Section Title
           </h2>
@@ -208,8 +208,6 @@ export function CardGridSection() {
                         flexShrink: 1,
                         flexBasis: "0%",
                       }}
-                      whileHover={{ scale: 1.02 }}
-                      whileTap={{ scale: 0.98 }}
                       initial={{ y: 60, opacity: 0, scale: 0.9 }}
                       animate={{
                         y: 0,
