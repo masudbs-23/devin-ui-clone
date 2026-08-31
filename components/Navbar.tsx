@@ -66,7 +66,7 @@ export function Navbar() {
               Download
             </button>
             <Link
-              href="/login"
+              href="/auth/login"
               className="bg-black px-[14px] py-[4px] text-[14px] font-medium text-white transition-opacity hover:opacity-85"
             >
               Log in

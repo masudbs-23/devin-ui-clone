@@ -14,6 +14,10 @@ export { LearnWorkSection } from './LearnWorkSection';
 export { CardGridSection } from './CardGridSection';
 export { BuildMoreSection } from './BuildMoreSection';
 
+// Auth
+export { LoginPage } from './LoginPage';
+export { SignupPage } from './SignupPage';
+
 // SEO
 export {
   StructuredData,
