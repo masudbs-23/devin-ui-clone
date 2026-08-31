@@ -1,39 +1,49 @@
-import Image from "next/image";
+import { ArrowUpRight } from 'lucide-react';
+
+const HERO_IMG =
+  'https://devin.ai/_next/image?url=%2Fassets%2Fimages%2Fhome-hero%2Fhero_new.webp&w=3840&q=75';
 
 export function HeroSection() {
   return (
-    <section className="flex flex-col items-center justify-center px-4 py-20 md:py-32" aria-labelledby="hero-heading">
-      <div className="mb-6">
-        <button 
-          className="bg-black text-white text-xs font-medium px-3 py-1 rounded-full flex items-center gap-2 hover:opacity-90 transition-opacity"
-          aria-label="Learn about Security Swarm feature"
+    <section className="relative flex overflow-hidden pt-28 min-[940px]:min-h-screen min-[940px]:pt-36">
+      <div className="mx-auto flex w-full max-w-[1440px] flex-col items-center justify-center px-5 min-[940px]:px-10">
+        <a
+          href="#"
+          className="mb-8 inline-flex items-center gap-2 rounded-full bg-[#121111] py-[5px] pl-[7px] pr-[10px] text-[13px] text-white shadow-[0_4px_16px_rgba(0,0,0,0.22),0_1px_3px_rgba(0,0,0,0.14)] transition-transform duration-200 hover:scale-[1.02]"
         >
-          <span className="bg-blue-500 text-white px-2 py-0.5 rounded-full text-[10px] font-bold" aria-hidden="true">NEW</span>
-          Introducing Security Swarm
-        </button>
-      </div>
-      <h1 id="hero-heading" className="text-5xl md:text-7xl font-bold text-center mb-8 text-ink leading-tight">
-        Puku, the AI<br />development environment
-      </h1>
-      
-      <div className="flex gap-4 mb-12" role="group" aria-label="Primary actions">
-        <button className="bg-black text-white px-6 py-3 rounded-lg font-medium hover:opacity-90 transition-opacity">
-          Try Puku
-        </button>
-        <button className="border border-ink/25 px-6 py-3 rounded-lg font-medium text-ink hover:border-ink/60 transition-colors">
-          Contact sales
-        </button>
-      </div>
-
-      <div className="w-full max-w-[90%] mx-auto">
-        <Image
-          src="/hero-image.png"
-          alt="Puku AI development environment interface showing code editor and AI assistant"
-          width={1200}
-          height={800}
-          className="rounded-lg shadow-2xl w-full h-auto"
-          priority
-        />
+          <span className="rounded-full bg-[#4530e8] px-[9px] py-[3px] font-mono-devin text-[11px] font-medium uppercase tracking-[0.04em]">
+            New
+          </span>
+          <span className="font-medium">Introducing Security Swarm</span>
+          <ArrowUpRight className="h-4 w-4 text-white/60" strokeWidth={1.5} />
+        </a>
+        <h1 className="mb-10 text-center font-heading text-[13vw] font-medium leading-[100%] tracking-[-0.04em] text-black min-[940px]:whitespace-nowrap min-[940px]:text-[88px]">
+          Devin, the AI
+          <br />
+          software engineer
+        </h1>
+        <div className="mb-12 flex flex-wrap items-center justify-center gap-3">
+          <a
+            href="#"
+            className="rounded-[2px] bg-black px-3 pb-[5px] pt-[6px] text-[16px] text-white transition-opacity hover:opacity-80"
+          >
+            Try Devin
+          </a>
+          <a
+            href="#"
+            className="rounded-[2px] border border-black bg-transparent px-[11px] pb-[4px] pt-[5px] text-[16px] text-black transition-opacity hover:opacity-70"
+          >
+            Contact sales
+          </a>
+        </div>
+        <figure className="mx-auto w-full max-w-[1920px] overflow-hidden rounded-[10px] drop-shadow-[0_0_8px_#ddd]">
+          <img
+            src={HERO_IMG}
+            alt="Devin, the AI software engineer product interface"
+            className="block h-auto w-full"
+            loading="eager"
+          />
+        </figure>
       </div>
     </section>
   );
