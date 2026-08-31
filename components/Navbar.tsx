@@ -2,17 +2,9 @@
 
 import { useEffect, useState } from "react";
 import { ChevronDown, Menu, X } from "lucide-react";
-import { DevinMark } from "./BrandIcon";
+import { PukuMark } from "./BrandIcon";
 import Link from "next/link";
-import type { NavItem } from "../types";
-
-const NAV: NavItem[] = [
-  { label: "Product", hasMenu: true, href: "/product" },
-  { label: "Solutions", hasMenu: true, href: "/solutions" },
-  { label: "Customers", hasMenu: false, href: "/customers" },
-  { label: "Resources", hasMenu: true, href: "/resources" },
-  { label: "Pricing", hasMenu: false, href: "/pricing" },
-];
+import { NAV_ITEMS } from "../lib/constants";
 
 export function Navbar() {
   const [open, setOpen] = useState(false);
@@ -31,11 +23,11 @@ export function Navbar() {
       <div className="site-container">
         <div className="mx-auto flex h-[68px] max-w-[1320px] items-center gap-8">
           <Link href="/" aria-label="Puku home" className="shrink-0 text-ink">
-            <DevinMark className="h-[22px] w-[22px]" />
+            <PukuMark className="h-[22px] w-[22px]" />
           </Link>
 
           <nav aria-label="Main" className="hidden items-center gap-1 min-[940px]:flex">
-            {NAV.map((item) => (
+            {NAV_ITEMS.map((item) => (
               <div
                 key={item.label}
                 className="relative group"
@@ -101,7 +93,7 @@ export function Navbar() {
           />
           <div className="fixed inset-0 z-[9999] flex flex-col bg-white min-[940px]:hidden">
             <div className="flex h-[68px] items-center border-b border-ink/10 bg-white px-[10px]">
-              <DevinMark className="h-[22px] w-[22px] text-ink" />
+              <PukuMark className="h-[22px] w-[22px] text-ink" />
               <button
                 type="button"
                 aria-label="Close menu"
@@ -112,7 +104,7 @@ export function Navbar() {
               </button>
             </div>
             <nav aria-label="Mobile" className="flex flex-col gap-1 pt-4 overflow-y-auto flex-1 bg-white px-[10px]">
-            {NAV.map((item) => (
+            {NAV_ITEMS.map((item) => (
               <div key={item.label}>
                 <button
                   onClick={() => {

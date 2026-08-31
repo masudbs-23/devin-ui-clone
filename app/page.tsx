@@ -1,9 +1,11 @@
-import { HeroSection } from "../components/HeroSection";
-import { ClientsSection } from "../components/ClientsSection";
-import { UsecasesSection } from "../components/UsecasesSection";
-import { LearnWorkSection } from "../components/LearnWorkSection";
-import { CardGridSection } from "../components/CardGridSection";
-import { BuildMoreSection } from "../components/BuildMoreSection";
+import {
+  HeroSection,
+  ClientsSection,
+  UsecasesSection,
+  LearnWorkSection,
+  CardGridSection,
+  BuildMoreSection,
+} from "../components";
 
 export default function Home() {
   return (

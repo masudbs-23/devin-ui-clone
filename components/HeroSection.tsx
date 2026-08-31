@@ -1,7 +1,5 @@
 import { ArrowUpRight } from 'lucide-react';
-
-const HERO_IMG =
-  'https://devin.ai/_next/image?url=%2Fassets%2Fimages%2Fhome-hero%2Fhero_new.webp&w=3840&q=75';
+import { IMAGES } from '../lib/constants';
 
 export function HeroSection() {
   return (
@@ -38,7 +36,7 @@ export function HeroSection() {
         </div>
         <figure className="mx-auto w-full max-w-[1920px] overflow-hidden rounded-[10px] drop-shadow-[0_0_8px_#ddd]">
           <img
-            src={HERO_IMG}
+            src={IMAGES.HERO}
             alt="Devin, the AI software engineer product interface"
             className="block h-auto w-full"
             loading="eager"

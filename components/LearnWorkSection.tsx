@@ -1,9 +1,5 @@
-import { DevinMark } from './BrandIcon';
-
-const BENTO_KNOWLEDGE =
-  'https://devin.ai/_next/image?url=%2F_next%2Fstatic%2Fimmutable%2Fmedia%2Fbento01.1zvwdjd4189o_.png&w=3840&q=75';
-const BENTO_COLLAB =
-  'https://devin.ai/_next/image?url=%2F_next%2Fstatic%2Fimmutable%2Fmedia%2Fwork-team-collaborate.41ww-s530784u.png&w=3840&q=75';
+import { PukuMark } from './BrandIcon';
+import { IMAGES, PROJECT_TASKS } from '../lib/constants';
 
 export function LearnWorkSection() {
   return (
@@ -31,7 +27,7 @@ export function LearnWorkSection() {
                 </p>
               </div>
               <div className="ml-auto mt-6 w-[92%] overflow-hidden">
-                <img src={BENTO_COLLAB} alt="Create automation, add a ticket for each task" loading="lazy" className="block h-auto w-full" />
+                <img src={IMAGES.BENTO_COLLAB} alt="Create automation, add a ticket for each task" loading="lazy" className="block h-auto w-full" />
               </div>
             </div>
             <div className="relative flex flex-col overflow-hidden rounded-2xl bg-[#1e1e1e] min-[940px]:order-1 min-[940px]:translate-y-[12%]">
@@ -42,7 +38,7 @@ export function LearnWorkSection() {
                 </h3>
               </div>
               <div className="ml-auto mt-6 w-[92%] overflow-hidden">
-                <img src={BENTO_KNOWLEDGE} alt="Add knowledge to Devin" loading="lazy" className="block h-auto w-full" />
+                <img src={IMAGES.BENTO_KNOWLEDGE} alt="Add knowledge to Devin" loading="lazy" className="block h-auto w-full" />
               </div>
             </div>
             <div className="relative flex flex-col overflow-hidden rounded-2xl bg-[#1e1e1e] min-[940px]:order-3">
@@ -57,7 +53,7 @@ export function LearnWorkSection() {
                 </p>
               </div>
               <div className="ml-auto mt-6 w-[92%] overflow-hidden">
-                <img src={BENTO_COLLAB} alt="Create automation, add a ticket for each task" loading="lazy" className="block h-auto w-full" />
+                <img src={IMAGES.BENTO_COLLAB} alt="Create automation, add a ticket for each task" loading="lazy" className="block h-auto w-full" />
               </div>
             </div>
             <div className="relative flex flex-col overflow-hidden rounded-2xl bg-[#1e1e1e] min-[940px]:order-4">
@@ -69,16 +65,12 @@ export function LearnWorkSection() {
                 </p>
               </div>
               <div className="mx-8 mb-8 mt-6 space-y-3 min-[940px]:mx-10 min-[940px]:mb-10">
-                {[
-                  { title: 'Migrate icons batch 1/19 (43 files)', tasks: '3/3 tasks', pr: '#21253' },
-                  { title: 'Migrate icons batch 2/19 (20 files)', tasks: '2/2 tasks', pr: '#21257' },
-                  { title: 'Migrate icons batch 3/19 (13 files)', tasks: '1/1 tasks', pr: '#21261' },
-                ].map((row) => (
+                {PROJECT_TASKS.map((row) => (
                   <div key={row.pr} className="rounded-xl bg-[#262626] p-4">
                     <p className="text-[14px] font-medium text-white/90">{row.title}</p>
                     <div className="mt-2 flex items-center justify-between text-[12px] text-white/50">
                       <span className="flex items-center gap-1.5">
-                        <DevinMark className="h-3.5 w-3.5 text-white/50" />
+                        <PukuMark className="h-3.5 w-3.5 text-white/50" />
                         Devin went to sleep
                       </span>
                       <span>{row.tasks}</span>

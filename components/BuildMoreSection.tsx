@@ -1,3 +1,5 @@
+import { LEGAL_LINKS, SOCIAL_LINKS } from '../lib/constants';
+
 export function BuildMoreSection() {
   return (
     <section className="px-4 py-20" aria-labelledby="build-more-heading">
@@ -34,15 +36,28 @@ export function BuildMoreSection() {
         <footer className="flex flex-col lg:flex-row justify-between items-start gap-8 mb-12">
           {/* Left section */}
           <nav className="w-full lg:flex-1 flex gap-[10px]" aria-label="Legal links">
-           <div className="flex flex-col lg:flex-row gap-6"> <a href="/privacy" className="text-ink hover:text-ink text-md">Privacy policy</a>
-            <a href="/terms" className="text-ink hover:text-ink text-md">Terms of service</a>
-            <a href="/privacy-choices" className="text-ink hover:text-ink text-md">Your privacy choices</a></div>
+           <div className="flex flex-col lg:flex-row gap-6">
+            {LEGAL_LINKS.map((link) => (
+              <a key={link.href} href={link.href} className="text-ink hover:text-ink text-md">
+                {link.label}
+              </a>
+            ))}
+           </div>
           </nav>
           {/* Right section */}
           <nav className="w-full lg:flex-1" aria-label="Social links">
             <div className="flex flex-col lg:flex-row gap-6">
-              <a href="https://linkedin.com/company/puku" className="text-ink hover:text-ink text-md" rel="noopener noreferrer" target="_blank">LinkedIn</a>
-              <a href="https://twitter.com/puku" className="text-ink hover:text-ink text-md" rel="noopener noreferrer" target="_blank">X (Twitter)</a>
+              {SOCIAL_LINKS.map((link) => (
+                <a
+                  key={link.platform}
+                  href={link.url}
+                  className="text-ink hover:text-ink text-md"
+                  rel="noopener noreferrer"
+                  target="_blank"
+                >
+                  {link.platform}
+                </a>
+              ))}
             </div>
           </nav>
         </footer>

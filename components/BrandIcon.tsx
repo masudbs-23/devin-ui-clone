@@ -1,6 +1,10 @@
-export function DevinMark({ className = 'h-6 w-6 text-black' }: { className?: string }) {
+interface PukuMarkProps {
+  className?: string;
+}
+
+export function PukuMark({ className = 'h-6 w-6 text-black' }: PukuMarkProps) {
   return (
-    <svg viewBox="0 0 32 32" fill="currentColor" className={className} aria-label="Devin logo">
+    <svg viewBox="0 0 32 32" fill="currentColor" className={className} aria-label="Puku logo">
       <ellipse cx="16" cy="7" rx="3.4" ry="5.2" />
       <ellipse cx="16" cy="25" rx="3.4" ry="5.2" />
       <ellipse cx="7" cy="11.5" rx="3.4" ry="5.2" transform="rotate(-60 7 11.5)" />
@@ -10,3 +14,6 @@ export function DevinMark({ className = 'h-6 w-6 text-black' }: { className?: st
     </svg>
   );
 }
+
+// Backward compatibility alias
+export const DevinMark = PukuMark;

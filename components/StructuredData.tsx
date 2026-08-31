@@ -1,4 +1,5 @@
 import Script from 'next/script';
+import { config } from '../lib/config';
 
 interface StructuredDataProps {
   data: Record<string, any>;
@@ -18,18 +19,18 @@ export function OrganizationStructuredData() {
   const organizationData = {
     '@context': 'https://schema.org',
     '@type': 'Organization',
-    name: 'Puku',
-    url: process.env.NEXT_PUBLIC_SITE_URL || 'https://puku.dev',
-    logo: `${process.env.NEXT_PUBLIC_SITE_URL || 'https://puku.dev'}/logo.png`,
-    description: 'Puku is the all-in-one environment for AI workflows, software development, and design.',
+    name: config.site.name,
+    url: config.site.url,
+    logo: `${config.site.url}/logo.png`,
+    description: config.site.description,
     sameAs: [
-      'https://twitter.com/puku',
-      'https://github.com/puku',
-      'https://linkedin.com/company/puku',
+      config.social.twitter,
+      config.social.github,
+      config.social.linkedin,
     ],
     contactPoint: {
       '@type': 'ContactPoint',
-      telephone: '+1-555-555-5555',
+      telephone: config.contact.phone,
       contactType: 'sales',
       availableLanguage: 'English',
     },
@@ -42,12 +43,12 @@ export function WebSiteStructuredData() {
   const websiteData = {
     '@context': 'https://schema.org',
     '@type': 'WebSite',
-    name: 'Puku',
-    url: process.env.NEXT_PUBLIC_SITE_URL || 'https://puku.dev',
-    description: 'Puku is the all-in-one environment for AI workflows, software development, and design.',
+    name: config.site.name,
+    url: config.site.url,
+    description: config.site.description,
     potentialAction: {
       '@type': 'SearchAction',
-      target: `${process.env.NEXT_PUBLIC_SITE_URL || 'https://puku.dev'}/search?q={search_term_string}`,
+      target: `${config.site.url}/search?q={search_term_string}`,
       'query-input': 'required name=search_term_string',
     },
   };
@@ -59,10 +60,10 @@ export function SoftwareApplicationStructuredData() {
   const softwareData = {
     '@context': 'https://schema.org',
     '@type': 'SoftwareApplication',
-    name: 'Puku',
+    name: config.site.name,
     operatingSystem: 'Web, Windows, macOS, Linux',
     applicationCategory: 'DeveloperApplication',
-    description: 'Puku is the all-in-one environment for AI workflows, software development, and design.',
+    description: config.site.description,
     offers: {
       '@type': 'Offer',
       price: '0',

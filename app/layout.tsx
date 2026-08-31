@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "../components/Navbar";
 import { OrganizationStructuredData, WebSiteStructuredData, SoftwareApplicationStructuredData } from "../components/StructuredData";
+import { config } from "../lib/config";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -16,42 +17,42 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: "Puku - One Environment for AI Workflows, Development, Design",
-    template: "%s | Puku"
+    default: `${config.site.name} - One Environment for AI Workflows, Development, Design`,
+    template: `%s | ${config.site.name}`
   },
-  description: "Puku is the all-in-one environment for AI workflows, software development, and design. Streamline your entire development process with powerful AI tools and seamless collaboration.",
+  description: config.site.description,
   keywords: ["AI workflows", "software development", "design tools", "AI development", "coding assistant", "development environment", "AI-powered IDE"],
-  authors: [{ name: "Puku Team" }],
-  creator: "Puku",
-  publisher: "Puku",
+  authors: [{ name: `${config.site.name} Team` }],
+  creator: config.site.name,
+  publisher: config.site.name,
   formatDetection: {
     email: false,
     address: false,
     telephone: false,
   },
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://puku.dev'),
+  metadataBase: new URL(config.site.url),
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: process.env.NEXT_PUBLIC_SITE_URL || 'https://puku.dev',
-    title: "Puku - One Environment for AI Workflows, Development, Design",
-    description: "Puku is the all-in-one environment for AI workflows, software development, and design. Streamline your entire development process with powerful AI tools.",
-    siteName: "Puku",
+    url: config.site.url,
+    title: `${config.site.name} - One Environment for AI Workflows, Development, Design`,
+    description: config.site.description,
+    siteName: config.site.name,
     images: [
       {
         url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "Puku - AI Development Environment"
+        alt: `${config.site.name} - AI Development Environment`
       }
     ]
   },
   twitter: {
     card: "summary_large_image",
-    title: "Puku - One Environment for AI Workflows, Development, Design",
-    description: "Puku is the all-in-one environment for AI workflows, software development, and design.",
+    title: `${config.site.name} - One Environment for AI Workflows, Development, Design`,
+    description: config.site.description,
     images: ["/og-image.png"],
-    creator: "@puku"
+    creator: config.social.twitter
   },
   robots: {
     index: true,

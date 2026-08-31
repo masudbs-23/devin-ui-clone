@@ -1,13 +1,4 @@
-import type { Client } from "../types";
-
-const CLIENTS: Client[] = [
-  { name: "Company 1", logo: "/company1.png" },
-  { name: "Company 2", logo: "/company2.png" },
-  { name: "Company 3", logo: "/company3.png" },
-  { name: "Company 4", logo: "/company4.png" },
-  { name: "Company 5", logo: "/company5.png" },
-  { name: "Company 6", logo: "/company6.png" },
-];
+import { CLIENTS } from "../lib/constants";
 
 export function ClientsSection() {
   return (
