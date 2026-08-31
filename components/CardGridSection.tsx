@@ -69,7 +69,7 @@ export function CardGridSection() {
         </div>
 
         {/* Full Width Card Grid */}
-        <div className="relative z-10 grid grid-cols-1 md:grid-cols-[auto_1fr_2fr_1fr_auto] gap-6 items-start mb-16 justify-center">
+        <div className="relative z-10 grid grid-cols-1 md:grid-cols-[auto_1fr_2fr_1fr_auto] gap-3 items-start mb-16 justify-center">
           
           {/* Grid 1: Positioned significantly higher initially (-mt-36) */}
           <motion.div style={{ y: grid1Y }} className="flex flex-col gap-6 -mt-36">
