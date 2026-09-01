@@ -3,7 +3,7 @@ import { IMAGES } from '../../lib/constants';
 
 export function HeroSection() {
   return (
-    <section className="relative flex overflow-hidden h-[1464px]  lg:min-h-screen mt-12 bg-[#F7F6F4]">
+    <section className="relative flex overflow-hidden min-h-screen  mt-20 bg-[#F7F6F4]">
       <div className="mx-auto flex w-full max-w-[1905px] flex-col items-center justify-center px-8 lg:px-10">
         <a
           href="#"
