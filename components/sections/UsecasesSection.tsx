@@ -12,7 +12,7 @@ interface UseCaseCardProps {
 
 function UseCaseCard({ title, items, link, image, className = '', height }: UseCaseCardProps) {
   return (
-    <div className={`flex flex-col overflow-hidden rounded-[12px] bg-[#EDEDED] ${className}`} style={{ height: height, width: '483px' }}>
+    <div className={`flex flex-col overflow-hidden rounded-[12px] bg-[#EDEDED] ${className}`} style={{ height: height }}>
       <div className="relative flex flex-1 flex-col p-6 pb-6 lg:p-8">
         <h3 className="font-heading text-[23px] font-medium leading-[1.25] text-[#141414]">
           {title}
@@ -58,9 +58,9 @@ export function UsecasesSection() {
             Use Puku to plan and execute complex engineering tasks, from code migrations to on-call incident
             resolution.
           </p>
-          <div className="mt-14 flex gap-6 w-full" style={{ height: '925px' }}>
+          <div className="mt-14 flex flex-col md:flex-row gap-6 w-full md:h-[925px]">
             {/* Grid 1 */}
-            <div className="flex flex-col gap-6" style={{ width: '483px' }}>
+            <div className="flex flex-col gap-6 w-full md:w-[285px] lg:w-[338px] xl:w-[483px]">
               <UseCaseCard
                 title="PR review & visual QA"
                 items={[
@@ -86,7 +86,7 @@ export function UsecasesSection() {
             </div>
 
             {/* Grid 2 */}
-            <div className="flex flex-col gap-6" style={{ width: '483px' }}>
+            <div className="flex flex-col gap-6 w-full md:w-[285px] lg:w-[338px] xl:w-[483px]">
               <UseCaseCard
                 title="Code migration + refactors"
                 items={[
@@ -109,7 +109,7 @@ export function UsecasesSection() {
             </div>
 
             {/* Grid 3 */}
-            <div className="flex flex-col gap-6" style={{ width: '483px' }}>
+            <div className="flex flex-col gap-6 w-full md:w-[285px] lg:w-[338px] xl:w-[483px]">
               <UseCaseCard
                 title="Issue triage + bug fixing"
                 items={[
