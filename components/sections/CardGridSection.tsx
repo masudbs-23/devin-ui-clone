@@ -6,6 +6,7 @@ import { motion, useScroll, useTransform, useMotionValueEvent, AnimatePresence }
 export function CardGridSection() {
   const sectionRef = useRef<HTMLDivElement>(null);
   const [isExpanded, setIsExpanded] = useState<boolean>(false);
+  const [hoveredCard, setHoveredCard] = useState<number | null>(null);
 
   const { scrollYProgress } = useScroll({
     target: sectionRef,
@@ -197,22 +198,25 @@ export function CardGridSection() {
                 className="flex flex-row gap-4 w-full"
               >
                 {cards3Data.map((card, idx) => {
+                  const isMiddleCard = idx === 1;
+                  const isHovered = hoveredCard === idx;
+                  const shouldExpand = isHovered || (hoveredCard === null && isMiddleCard);
                   return (
                     <motion.div
                       key={idx}
                       style={{ 
-                        flexGrow: 1,
+                        flexGrow: shouldExpand ? 5 : 1,
                         flexShrink: 1,
                         flexBasis: "0%",
                       }}
-                      whileHover={{
-                        flexGrow: 5,
-                      }}
+                      onHoverStart={() => setHoveredCard(idx)}
+                      onHoverEnd={() => setHoveredCard(null)}
                       initial={{ y: 60, opacity: 0, scale: 0.9 }}
                       animate={{
                         y: 0,
                         opacity: 1,
                         scale: 1,
+                        flexGrow: shouldExpand ? 5 : 1,
                       }}
                       exit={{
                         // Phase 1: Shrink to grid card size
