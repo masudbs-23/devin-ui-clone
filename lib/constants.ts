@@ -35,15 +35,10 @@ export const LEGAL_LINKS = [
   { label: 'Your privacy choices', href: '/privacy-choices' },
 ] as const;
 
-// Clients (placeholder data - replace with real client data)
-export const CLIENTS = [
-  { name: 'Company 1', logo: '/company1.png' },
-  { name: 'Company 2', logo: '/company2.png' },
-  { name: 'Company 3', logo: '/company3.png' },
-  { name: 'Company 4', logo: '/company4.png' },
-  { name: 'Company 5', logo: '/company5.png' },
-  { name: 'Company 6', logo: '/company6.png' },
-] as const;
+export const CLIENTS = Array.from({ length: 25 }, (_, i) => ({
+  name: `Company ${i + 1}`,
+  logo: `/company${i + 1}.png`,
+}));
 
 // Image URLs (replace with actual Puku images)
 export const IMAGES = {
