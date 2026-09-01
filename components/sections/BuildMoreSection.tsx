@@ -1,4 +1,4 @@
-import { LEGAL_LINKS, SOCIAL_LINKS } from '../lib/constants';
+import { LEGAL_LINKS, SOCIAL_LINKS } from '../../lib/constants';
 
 export function BuildMoreSection() {
   return (

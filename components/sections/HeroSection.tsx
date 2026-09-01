@@ -1,5 +1,5 @@
 import { ArrowUpRight } from 'lucide-react';
-import { IMAGES } from '../lib/constants';
+import { IMAGES } from '../../lib/constants';
 
 export function HeroSection() {
   return (

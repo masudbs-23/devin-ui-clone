@@ -1,5 +1,5 @@
 import { ChevronRight } from 'lucide-react';
-import { USECASES } from '../lib/constants';
+import { USECASES } from '../../lib/constants';
 
 interface UseCaseCardProps {
   title: string;

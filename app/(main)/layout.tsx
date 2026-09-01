@@ -1,5 +1,5 @@
-import { Navbar } from "../../components/Navbar";
-import { OrganizationStructuredData, WebSiteStructuredData, SoftwareApplicationStructuredData } from "../../components/StructuredData";
+import { Navbar } from "../../components/layout/Navbar";
+import { OrganizationStructuredData, WebSiteStructuredData, SoftwareApplicationStructuredData } from "../../components/ui/StructuredData";
 
 export default function MainLayout({
   children,

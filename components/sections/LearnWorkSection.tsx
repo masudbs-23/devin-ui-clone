@@ -1,5 +1,5 @@
-import { PukuMark } from './BrandIcon';
-import { IMAGES, PROJECT_TASKS } from '../lib/constants';
+import { PukuMark } from '../brand';
+import { IMAGES, PROJECT_TASKS } from '../../lib/constants';
 
 export function LearnWorkSection() {
   return (

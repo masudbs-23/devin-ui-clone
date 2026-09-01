@@ -1,5 +1,5 @@
 import Script from 'next/script';
-import { config } from '../lib/config';
+import { config } from '../../lib/config';
 
 interface StructuredDataProps {
   data: Record<string, any>;

@@ -1,27 +1,14 @@
 // Component barrel exports for clean imports
+// Re-exports from organized component folders
 
 // Brand
-export { PukuMark, DevinMark } from './BrandIcon';
+export * from './brand';
 
 // Layout
-export { Navbar } from './Navbar';
+export * from './layout';
 
 // Sections
-export { HeroSection } from './HeroSection';
-export { ClientsSection } from './ClientsSection';
-export { UsecasesSection } from './UsecasesSection';
-export { LearnWorkSection } from './LearnWorkSection';
-export { CardGridSection } from './CardGridSection';
-export { BuildMoreSection } from './BuildMoreSection';
+export * from './sections';
 
-// Auth
-export { LoginPage } from './LoginPage';
-export { SignupPage } from './SignupPage';
-
-// SEO
-export {
-  StructuredData,
-  OrganizationStructuredData,
-  WebSiteStructuredData,
-  SoftwareApplicationStructuredData,
-} from './StructuredData';
+// UI
+export * from './ui';

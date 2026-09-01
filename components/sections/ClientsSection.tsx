@@ -1,4 +1,4 @@
-import { CLIENTS } from "../lib/constants";
+import { CLIENTS } from "../../lib/constants";
 
 export function ClientsSection() {
   return (
