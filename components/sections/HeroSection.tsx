@@ -3,7 +3,7 @@ import { IMAGES } from '../../lib/constants';
 
 export function HeroSection() {
   return (
-    <section className="relative flex overflow-hidden h-[1464px] pt-28 lg:min-h-screen lg:pt-36 bg-[#F7F6F4]">
+    <section className="relative flex overflow-hidden h-[1464px]  lg:min-h-screen mt-12 bg-[#F7F6F4]">
       <div className="mx-auto flex w-full max-w-[1905px] flex-col items-center justify-center px-8 lg:px-10">
         <a
           href="#"
@@ -38,7 +38,7 @@ export function HeroSection() {
           <img
             src={IMAGES.HERO}
             alt="Puku, the AI software engineer product interface"
-            className="block w-[1790px] h-[1032px] object-cover"
+            className="block w-full h-auto object-cover"
             loading="eager"
           />
         </figure>
