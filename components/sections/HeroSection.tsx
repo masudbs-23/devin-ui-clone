@@ -34,7 +34,7 @@ export function HeroSection() {
             Contact sales
           </a>
         </div>
-        <figure className="mx-auto w-full max-w-[1920px] overflow-hidden rounded-[10px] drop-shadow-[0_0_8px_#ddd]">
+        <figure className="mx-auto w-full max-w-[1789px] overflow-hidden rounded-[10px] drop-shadow-[0_0_8px_#ddd]">
           <img
             src={IMAGES.HERO}
             alt="Puku, the AI software engineer product interface"
