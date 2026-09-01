@@ -3,8 +3,8 @@ import { LEGAL_LINKS, SOCIAL_LINKS } from '../lib/constants';
 export function BuildMoreSection() {
   return (
     <section className="px-4 py-20 bg-[#F7F6F4]" aria-labelledby="build-more-heading">
-      <div className="max-w-[1280px] mx-auto px-8">
-        <div className="flex flex-col lg:flex-row justify-between items-start gap-8 mb-12">
+      <div className="max-w-[1905px] mx-auto px-8">
+        <div className="mx-auto max-w-[1490px] flex flex-col lg:flex-row justify-between items-start gap-8 mb-12">
           {/* Left side - full width on mobile/tablet */}
           <div className="w-full lg:flex-1">
             <h2 id="build-more-heading" className="text-5xl lg:text-6xl font-medium text-[#141414] leading-tight tracking-[-0.015em]">

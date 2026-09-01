@@ -4,7 +4,7 @@ import { IMAGES } from '../lib/constants';
 export function HeroSection() {
   return (
     <section className="relative flex overflow-hidden pt-28 lg:min-h-screen lg:pt-36 bg-[#F7F6F4]">
-      <div className="mx-auto flex w-full max-w-[1280px] flex-col items-center justify-center px-8 lg:px-10">
+      <div className="mx-auto flex w-full max-w-[1905px] flex-col items-center justify-center px-8 lg:px-10">
         <a
           href="#"
           className="mb-8 inline-flex items-center gap-2 rounded-full bg-[#0E0E0E] py-[5px] pl-[7px] pr-[10px] text-[13px] text-[#F5F5F5] shadow-[0_4px_16px_rgba(0,0,0,0.22),0_1px_3px_rgba(0,0,0,0.14)] transition-transform duration-200 hover:scale-[1.02]"
@@ -34,7 +34,7 @@ export function HeroSection() {
             Contact sales
           </a>
         </div>
-        <figure className="mx-auto w-full max-w-[1280px] overflow-hidden rounded-[12px] border border-[#E0DFDD] bg-[#FFFFFF]">
+        <figure className="mx-auto w-full max-w-[1790px] overflow-hidden rounded-[12px] border border-[#E0DFDD] bg-[#FFFFFF]">
           <img
             src={IMAGES.HERO}
             alt="Puku, the AI software engineer product interface"

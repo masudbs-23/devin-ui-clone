@@ -20,8 +20,8 @@ export function Navbar() {
 
   return (
     <header className="sticky top-0 z-50 w-full bg-[#F7F6F4]">
-      <div className="site-container">
-        <div className="mx-auto flex h-[72px] max-w-[1280px] items-center gap-8 px-8">
+      <div className="mx-auto max-w-[1905px] px-8">
+        <div className="mx-auto flex h-[72px] max-w-[1440px] items-center gap-8">
           <Link href="/" aria-label="Puku home" className="shrink-0 text-[#141414]">
             <PukuMark className="h-[22px] w-[22px]" />
           </Link>

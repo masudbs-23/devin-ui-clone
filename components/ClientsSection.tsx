@@ -3,7 +3,8 @@ import { CLIENTS } from "../lib/constants";
 export function ClientsSection() {
   return (
     <section className="bg-[#F2F1F0] py-24" aria-labelledby="clients-heading">
-      <div className="max-w-[1240px] mx-auto px-10 md:px-6 sm:px-4">
+      <div className="max-w-[1905px] mx-auto px-10 md:px-6 sm:px-4">
+        <div className="mx-auto max-w-[1490px]">
         <header className="flex flex-col items-center text-center mb-12">
           <p className="text-center text-[15px] text-[#5F5F5D] font-medium mb-2">
             Industry leaders choose to
@@ -28,6 +29,7 @@ export function ClientsSection() {
             </li>
           ))}
         </ul>
+        </div>
       </div>
     </section>
   );

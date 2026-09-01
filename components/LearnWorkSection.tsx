@@ -4,8 +4,8 @@ import { IMAGES, PROJECT_TASKS } from '../lib/constants';
 export function LearnWorkSection() {
   return (
     <section className="relative z-[1] bg-[#0E0E0E] py-20 text-[#F5F5F5] lg:py-32">
-      <div className="mx-auto max-w-[1280px] px-8 lg:px-10">
-        <div className="min-[1440px]:px-[8%]">
+      <div className="mx-auto max-w-[1905px] px-8 lg:px-10">
+        <div className="mx-auto max-w-[1490px]">
           <h2 className="font-heading text-[40px] font-medium leading-[1.1] tracking-[-0.015em] lg:text-[40px]">
             Learn &amp; work
             <br />
