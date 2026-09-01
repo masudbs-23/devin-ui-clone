@@ -13,14 +13,14 @@ export function Navbar() {
   const [mobileOpenMenu, setMobileOpenMenu] = useState<string | null>(null);
 
   return (
-    <header className="sticky top-0 z-50 w-full bg-[#F7F6F4]">
-      <div className="mx-auto max-w-[var(--container-outer)] px-8">
-        <div className="mx-auto flex h-[72px] max-w-[var(--container-navbar)] items-center gap-8">
-          <Link href="/" aria-label="Puku home" className="shrink-0 text-[#141414]">
-            <PukuMark className="h-[22px] w-[22px]" />
-          </Link>
+    <header className="fixed top-0 left-0 right-0 z-[1000] bg-dt-bg transition-shadow duration-150 ease-out">
+      <div className="flex items-center justify-between max-w-[1440px] mx-auto px-5 md:px-10 lg:px-12 xl:px-15 py-[18px] box-border h-[66px]">
+          <div className="flex items-center gap-5 xl:gap-[40px] min-w-0" style={{ width: '527px' }}>
+            <Link href="/" aria-label="Puku home" className="shrink-0 text-[#141414]">
+              <PukuMark className="h-[22px] w-[22px]" />
+            </Link>
 
-          <nav aria-label="Main" className="hidden items-center gap-1 lg:flex">
+            <nav aria-label="Main" className="hidden items-center gap-1 lg:flex">
             {NAV_ITEMS.map((item) => (
               <div
                 key={item.label}
@@ -46,16 +46,17 @@ export function Navbar() {
               </div>
             ))}
           </nav>
+          </div>
 
-          <div className="ml-auto hidden items-center gap-2 lg:flex">
+          <div className="hidden min-[1170px]:flex items-center gap-[6px] shrink-0" style={{ width: '253px', height: '32px' }}>
             <a
               href="#contact"
-              className="px-2 font-heading text-[14px] leading-[1.4] no-underline whitespace-nowrap transition-opacity duration-150 ease-out cursor-pointer hover:opacity-70 text-[#141414] font-medium"
+              className="px-2 font-heading text-[14px] leading-[26px] no-underline whitespace-nowrap transition-opacity duration-150 ease-out cursor-pointer hover:opacity-70 text-[#141414] font-medium"
             >
               Get a Demo
             </a>
             <button
-              className="px-2 font-heading text-[14px] leading-[1.4] no-underline whitespace-nowrap transition-opacity duration-150 ease-out cursor-pointer hover:opacity-70 text-[#141414] font-medium border border-dt-black bg-transparent h-[30px]"
+              className="px-2 font-heading text-[14px] leading-[26px] no-underline whitespace-nowrap transition-opacity duration-150 ease-out cursor-pointer hover:opacity-70 text-[#141414] font-medium border border-dt-black bg-transparent h-[32px]"
             >
               Download
             </button>
@@ -63,7 +64,7 @@ export function Navbar() {
               href="https://puku.sh/login?next=%2F"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center font-heading text-[14px] leading-[1.4] no-underline whitespace-nowrap transition-opacity duration-150 ease-out cursor-pointer hover:opacity-70 text-[#141414] font-medium border border-dt-black bg-black text-white px-[12px] text-dt-text-inverse-adaptive bg-dt-black h-[30px]"
+              className="inline-flex items-center font-heading text-[14px] leading-[26px] no-underline whitespace-nowrap transition-opacity duration-150 ease-out cursor-pointer hover:opacity-70 text-[#141414] font-medium border border-dt-black bg-black text-white px-[12px] text-dt-text-inverse-adaptive bg-dt-black h-[32px]"
             >
               Log in
             </a>
@@ -78,7 +79,6 @@ export function Navbar() {
           >
             {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
           </button>
-        </div>
       </div>
 
       {open && (
