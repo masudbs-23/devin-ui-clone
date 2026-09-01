@@ -33,12 +33,12 @@ export function BuildMoreSection() {
         </div>
 
         {/* Footer links */}
-        <footer className="flex flex-col lg:flex-row justify-between items-start gap-8 mb-12">
+        <div className="mx-auto max-w-[var(--container-wide-content)] flex flex-col lg:flex-row justify-between items-start gap-8 mb-12">
           {/* Left section */}
           <nav className="w-full lg:flex-1 flex gap-[10px]" aria-label="Legal links">
            <div className="flex flex-col lg:flex-row gap-6">
             {LEGAL_LINKS.map((link) => (
-              <a key={link.href} href={link.href} className="text-[#5F5F5D] hover:text-[#141414] text-[14px]">
+              <a key={link.href} href={link.href}  className="text-[#141414] hover:text-[#141414] text-[16px] font-medium hover:underline hover:underline-offset-4">
                 {link.label}
               </a>
             ))}
@@ -51,7 +51,7 @@ export function BuildMoreSection() {
                 <a
                   key={link.platform}
                   href={link.url}
-                  className="text-[#5F5F5D] hover:text-[#141414] text-[14px]"
+                 className="text-[#141414] hover:text-[#141414] text-[16px] font-medium hover:underline hover:underline-offset-4"
                   rel="noopener noreferrer"
                   target="_blank"
                 >
@@ -60,7 +60,7 @@ export function BuildMoreSection() {
               ))}
             </div>
           </nav>
-        </footer>
+        </div>
       </div>
     </section>
   );
