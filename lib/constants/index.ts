@@ -73,7 +73,7 @@ export const USECASES = [
     ],
     link: 'Learn more about DeepWiki',
     image: undefined,
-    gridPosition: { col: 1, row: 3, rowSpan: 1 },
+    gridPosition: { col: 2, row: 3, rowSpan: 1 },
   },
   {
     id: 'code-migration',
@@ -97,7 +97,7 @@ export const USECASES = [
     ],
     link: undefined,
     image: IMAGES.USECASE_CHORES,
-    gridPosition: { col: 2, row: 2, rowSpan: 2 },
+    gridPosition: { col: 2, row: 2, rowSpan: 1 },
   },
   {
     id: 'issue-triage',
@@ -123,7 +123,7 @@ export const USECASES = [
     ],
     link: undefined,
     image: undefined,
-    gridPosition: { col: 3, row: 3, rowSpan: 1 },
+    gridPosition: { col: 1, row: 3, rowSpan: 1 },
   },
 ];
 

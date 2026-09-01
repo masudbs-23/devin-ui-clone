@@ -1,5 +1,5 @@
 import { ChevronRight } from 'lucide-react';
-import { USECASES } from '../../lib/constants';
+import { USECASES, IMAGES } from '../../lib/constants';
 
 interface UseCaseCardProps {
   title: string;
@@ -7,11 +7,12 @@ interface UseCaseCardProps {
   link?: string;
   image?: string;
   className?: string;
+  height?: string;
 }
 
-function UseCaseCard({ title, items, link, image, className = '' }: UseCaseCardProps) {
+function UseCaseCard({ title, items, link, image, className = '', height }: UseCaseCardProps) {
   return (
-    <div className={`flex flex-col overflow-hidden rounded-[12px] bg-[#EDEDED] ${className}`}>
+    <div className={`flex flex-col overflow-hidden rounded-[12px] bg-[#EDEDED] ${className}`} style={{ height: height, width: '483px' }}>
       <div className="relative flex flex-1 flex-col p-6 pb-6 lg:p-8">
         <h3 className="font-heading text-[23px] font-medium leading-[1.25] text-[#141414]">
           {title}
@@ -57,17 +58,80 @@ export function UsecasesSection() {
             Use Puku to plan and execute complex engineering tasks, from code migrations to on-call incident
             resolution.
           </p>
-          <div className="mt-14 grid w-full grid-cols-1 gap-4 lg:grid-cols-3 lg:grid-rows-[repeat(3,auto)] lg:gap-6">
-            {USECASES.map((usecase) => (
+          <div className="mt-14 flex gap-6 w-full" style={{ height: '925px' }}>
+            {/* Grid 1 */}
+            <div className="flex flex-col gap-6" style={{ width: '483px' }}>
               <UseCaseCard
-                key={usecase.id}
-                className={`lg:col-start-${usecase.gridPosition.col} lg:row-start-${usecase.gridPosition.row} ${usecase.gridPosition.rowSpan > 1 ? `lg:row-span-${usecase.gridPosition.rowSpan}` : ''}`}
-                title={usecase.title}
-                items={usecase.items}
-                link={usecase.link}
-                image={usecase.image}
+                title="PR review & visual QA"
+                items={[
+                  'Automatically identify and resolve bugs',
+                  'Visual QA with full browser and desktop use',
+                  'Intelligently organize code diffs for review',
+                ]}
+                link="Learn about Devin Review"
+                image={IMAGES.USECASE_REVIEW}
+                height="602px"
               />
-            ))}
+              <UseCaseCard
+                title="And many others"
+                items={[
+                  'Automated ticket resolution',
+                  'Unit and E2E testing',
+                  'Performance optimization',
+                  'Web research and scraping',
+                  'Repetitive browser task automation',
+                ]}
+                height="303px"
+              />
+            </div>
+
+            {/* Grid 2 */}
+            <div className="flex flex-col gap-6" style={{ width: '483px' }}>
+              <UseCaseCard
+                title="Code migration + refactors"
+                items={[
+                  'Assign a fleet of agents to migrate all repos in parallel',
+                  'Accelerate all modernizations — COBOL, .NET, Talend, legacy ETL, and more.',
+                  'Complete audibility at each step.',
+                ]}
+                height="303px"
+              />
+              <UseCaseCard
+                title="Scheduled chores and application development"
+                items={[
+                  'Schedule daily QA and release notes',
+                  'Continuously review and address user feedback',
+                  'Maintain documentation',
+                ]}
+                image={IMAGES.USECASE_CHORES}
+                height="602px"
+              />
+            </div>
+
+            {/* Grid 3 */}
+            <div className="flex flex-col gap-6" style={{ width: '483px' }}>
+              <UseCaseCard
+                title="Issue triage + bug fixing"
+                items={[
+                  'Investigate Datadog incidents immediately',
+                  'Intelligently route Slack bug reports',
+                  'Automatically fix CI failures',
+                ]}
+                image={IMAGES.USECASE_TRIAGE}
+                height="602px"
+              />
+              <UseCaseCard
+                title="And many others"
+                items={[
+                  'Automated ticket resolution',
+                  'Unit and E2E testing',
+                  'Performance optimization',
+                  'Web research and scraping',
+                  'Repetitive browser task automation',
+                ]}
+                height="303px"
+              />
+            </div>
           </div>
         </div>
       </div>
