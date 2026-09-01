@@ -4,7 +4,7 @@ interface SubmitButtonProps {
 
 export function SubmitButton({ children }: SubmitButtonProps) {
   return (
-    <button className="w-full md:w-[358px] bg-white text-black font-medium rounded-[6px] h-[32px] hover:bg-white/90 transition-colors">
+    <button className="w-full md:w-[358px] bg-[#141414] text-[#FFFFFF] font-medium rounded-[8px] h-[40px] hover:bg-[#2A2A2A] transition-colors">
       {children}
     </button>
   );

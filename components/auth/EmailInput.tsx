@@ -7,14 +7,14 @@ interface EmailInputProps {
 export function EmailInput({ id = 'email', label = 'Email address', placeholder = 'Enter your email' }: EmailInputProps) {
   return (
     <div>
-      <label htmlFor={id} className="block text-white/70 text-sm mb-2">
+      <label htmlFor={id} className="block text-[#9A9A98] text-sm mb-2">
         {label}
       </label>
       <input
         id={id}
         type="email"
         placeholder={placeholder}
-        className="w-full md:w-[358px] bg-white/5 border border-white/10 rounded-[6px] h-[32px] px-4 text-white placeholder:text-white/30 focus:outline-none focus:border-white/30 transition-colors"
+        className="w-full md:w-[358px] bg-[#1C1C1E] border border-[#2C2C2E] rounded-[8px] h-[40px] px-4 text-[#F5F5F5] placeholder:text-[#9A9A98] focus:outline-none focus:border-[#2200FF] transition-colors"
       />
     </div>
   );
