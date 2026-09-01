@@ -35,7 +35,7 @@ export function Navbar() {
                 onMouseLeave={() => setHoveredMenu(null)}
               >
                 <button
-                  className="inline-flex items-center gap-1 px-2 font-heading text-[14px] leading-[1.4] no-underline whitespace-nowrap transition-opacity duration-150 ease-out cursor-pointer hover:opacity-70 text-[#141414]"
+                  className="inline-flex items-center gap-1 px-2 font-heading text-[14px] leading-[1.4] no-underline whitespace-nowrap transition-opacity duration-150 ease-out cursor-pointer hover:opacity-70 text-[#141414] font-medium"
                 >
                   {item.label}
                   {item.hasMenu && (
@@ -56,12 +56,12 @@ export function Navbar() {
           <div className="ml-auto hidden items-center gap-2 lg:flex">
             <a
               href="#contact"
-              className="px-2 font-heading text-[14px] leading-[1.4] no-underline whitespace-nowrap transition-opacity duration-150 ease-out cursor-pointer hover:opacity-70 text-[#141414]"
+              className="px-2 font-heading text-[14px] leading-[1.4] no-underline whitespace-nowrap transition-opacity duration-150 ease-out cursor-pointer hover:opacity-70 text-[#141414] font-medium"
             >
               Get a Demo
             </a>
             <button
-              className="rounded-[8px] border border-[#E0DFDD] px-[16px] py-[10px] font-heading text-[14px] leading-[1.4] font-medium text-[#141414] transition-colors hover:border-[#141414]"
+              className="rounded-[8px] border border-[#E0DFDD] px-[16px] py-[10px] font-heading text-[14px] leading-[1.4] font-medium text-[#141414] transition-colors hover:border-[#141414] "
             >
               Download
             </button>
@@ -106,7 +106,7 @@ export function Navbar() {
             <nav aria-label="Mobile" className="flex flex-col gap-1 pt-4 overflow-y-auto flex-1 bg-white px-[10px]">
             {NAV_ITEMS.map((item) => (
               <div key={item.label}>
-                <button
+                <a
                   onClick={() => {
                     if (item.hasMenu) {
                       setMobileOpenMenu(mobileOpenMenu === item.label ? null : item.label);
@@ -114,7 +114,8 @@ export function Navbar() {
                       setOpen(false);
                     }
                   }}
-                  className="flex items-center justify-between border-b border-[#E0DFDD] py-4 font-heading text-[20px] leading-[1.4] font-medium tracking-[-0.02em] w-full text-left text-[#141414]"
+                  className="flex items-center justify-between border-b border-[#E0DFDD] py-4 font-heading text-[24px] leading-[1.4] font-medium tracking-[-0.02em] w-full text-left text-[#141414]"
+                  
                 >
                   {item.label}
                   {item.hasMenu && (
@@ -124,7 +125,7 @@ export function Navbar() {
                       }`}
                     />
                   )}
-                </button>
+                </a>
                 {item.hasMenu && mobileOpenMenu === item.label && (
                   <div className="pl-4 py-2 border-b border-[#E0DFDD]">
                     <ul className="space-y-2">
