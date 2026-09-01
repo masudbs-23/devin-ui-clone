@@ -23,13 +23,13 @@ export function HeroSection() {
         <div className="mb-12 flex flex-wrap items-center justify-center gap-3">
           <a
             href="#"
-            className="rounded-[8px] bg-[#141414] px-[20px] py-[10px] text-[14px] text-[#FFFFFF] font-medium transition-opacity hover:opacity-80"
+            className="rounded-[2px] bg-[#141414] px-[20px] py-[10px] text-[14px] text-[#FFFFFF] font-medium transition-opacity hover:opacity-80"
           >
             Try Puku
           </a>
           <a
             href="#"
-            className="rounded-[8px] border border-[#E0DFDD] bg-transparent px-[20px] py-[10px] text-[14px] text-[#141414] font-medium transition-opacity hover:opacity-70"
+            className="rounded-[2px] border border-[#E0DFDD] bg-transparent px-[20px] py-[10px] text-[14px] text-[#141414] font-medium transition-opacity hover:opacity-70"
           >
             Contact sales
           </a>
