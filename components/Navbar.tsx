@@ -35,7 +35,7 @@ export function Navbar() {
                 onMouseLeave={() => setHoveredMenu(null)}
               >
                 <button
-                  className="inline-flex items-center gap-1 text-[14px] leading-none font-medium text-[#141414] transition-all rounded-full px-3 py-2 border border-transparent hover:bg-[#EDEDED]"
+                  className="inline-flex items-center gap-1 px-2 font-heading text-[14px] leading-[1.4] no-underline whitespace-nowrap transition-opacity duration-150 ease-out cursor-pointer hover:opacity-70 text-[#141414]"
                 >
                   {item.label}
                   {item.hasMenu && (
@@ -56,18 +56,18 @@ export function Navbar() {
           <div className="ml-auto hidden items-center gap-2 lg:flex">
             <a
               href="#contact"
-              className="px-2 text-[14px] font-normal text-[#141414] transition-colors hover:text-[#141414]"
+              className="px-2 font-heading text-[14px] leading-[1.4] no-underline whitespace-nowrap transition-opacity duration-150 ease-out cursor-pointer hover:opacity-70 text-[#141414]"
             >
               Get a Demo
             </a>
             <button
-              className="rounded-[8px] border border-[#E0DFDD] px-[14px] py-[10px] text-[14px] font-medium text-[#141414] transition-colors hover:border-[#141414]"
+              className="rounded-[8px] border border-[#E0DFDD] px-[16px] py-[10px] font-heading text-[14px] leading-[1.4] font-medium text-[#141414] transition-colors hover:border-[#141414]"
             >
               Download
             </button>
             <Link
               href="/login"
-              className="bg-[#141414] px-[14px] py-[10px] text-[14px] font-medium text-[#FFFFFF] rounded-[8px] transition-opacity hover:opacity-85"
+              className="bg-[#141414] px-[16px] py-[10px] font-heading text-[14px] leading-[1.4] font-medium text-[#FFFFFF] rounded-[8px] transition-opacity hover:opacity-85"
             >
               Log in
             </Link>
@@ -114,7 +114,7 @@ export function Navbar() {
                       setOpen(false);
                     }
                   }}
-                  className="flex items-center justify-between border-b border-[#E0DFDD] py-4 text-[22px] font-medium tracking-[-0.02em] w-full text-left text-[#141414]"
+                  className="flex items-center justify-between border-b border-[#E0DFDD] py-4 font-heading text-[20px] leading-[1.4] font-medium tracking-[-0.02em] w-full text-left text-[#141414]"
                 >
                   {item.label}
                   {item.hasMenu && (
@@ -128,9 +128,9 @@ export function Navbar() {
                 {item.hasMenu && mobileOpenMenu === item.label && (
                   <div className="pl-4 py-2 border-b border-[#E0DFDD]">
                     <ul className="space-y-2">
-                      <li className="text-[18px] text-[#5F5F5D] py-2">Sub-item 1</li>
-                      <li className="text-[18px] text-[#5F5F5D] py-2">Sub-item 2</li>
-                      <li className="text-[18px] text-[#5F5F5D] py-2">Sub-item 3</li>
+                      <li className="font-heading text-[16px] leading-[1.4] text-[#5F5F5D] py-2">Sub-item 1</li>
+                      <li className="font-heading text-[16px] leading-[1.4] text-[#5F5F5D] py-2">Sub-item 2</li>
+                      <li className="font-heading text-[16px] leading-[1.4] text-[#5F5F5D] py-2">Sub-item 3</li>
                     </ul>
                   </div>
                 )}
@@ -140,20 +140,20 @@ export function Navbar() {
               <a
                 href="#contact"
                 onClick={() => setOpen(false)}
-                className="py-2 text-center text-[15px] font-medium text-[#5F5F5D]"
+                className="py-2 text-center font-heading text-[14px] leading-[1.4] font-medium text-[#5F5F5D]"
               >
                 Get a Demo
               </a>
               <button
                 onClick={() => setOpen(false)}
-                className="rounded-[8px] border border-[#E0DFDD] px-4 py-3 text-center text-[15px] font-medium text-[#141414]"
+                className="rounded-[8px] border border-[#E0DFDD] px-[16px] py-[10px] font-heading text-[14px] leading-[1.4] font-medium text-[#141414] text-center"
               >
                 Download
               </button>
               <Link
                 href="/login"
                 onClick={() => setOpen(false)}
-                className="rounded-[8px] bg-[#141414] px-4 py-3 text-center text-[15px] font-medium text-[#FFFFFF]"
+                className="rounded-[8px] bg-[#141414] px-[16px] py-[10px] font-heading text-[14px] leading-[1.4] font-medium text-[#FFFFFF] text-center"
               >
                 Log in
               </Link>
