@@ -2,14 +2,14 @@ import { CLIENTS } from "../lib/constants";
 
 export function ClientsSection() {
   return (
-    <section className="bg-[#F2F1F0] py-24" aria-labelledby="clients-heading">
-      <div className="max-w-[1905px] mx-auto px-10 md:px-6 sm:px-4">
-        <div className="mx-auto max-w-[1490px]">
+    <section className="bg-[#F7F6F5] h-[926px] py-24" aria-labelledby="clients-heading">
+      <div className="max-w-[var(--container-outer)] mx-auto px-10 md:px-6 sm:px-4">
+        <div className="mx-auto max-w-[var(--container-wide-content)]">
         <header className="flex flex-col items-center text-center mb-12">
-          <p className="text-center text-[15px] text-[#5F5F5D] font-medium mb-2">
+          <p className="text-center text-[24px] text-[#5F5F5D] font-medium mb-2">
             Industry leaders choose to
           </p>
-          <h2 id="clients-heading" className="text-center text-[26px] font-semibold leading-tight text-[#141414] tracking-[-0.01em] mb-6">
+          <h2 id="clients-heading" className="text-center text-[64px] font-semibold leading-tight text-[#141414] tracking-[-0.01em] mb-6">
             Build with <span className="text-[#2200FF]">Puku</span>
           </h2>
           <button 

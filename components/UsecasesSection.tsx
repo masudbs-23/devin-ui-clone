@@ -47,9 +47,9 @@ function UseCaseCard({ title, items, link, image, className = '' }: UseCaseCardP
 
 export function UsecasesSection() {
   return (
-    <section className="relative z-[1] bg-[#F7F6F4] py-20 lg:py-32">
-      <div className="mx-auto max-w-[1905px] px-8 lg:px-10">
-        <div className="mx-auto max-w-[1490px]">
+    <section className="relative z-[1] bg-[#E7E7E7] py-20 lg:py-32">
+      <div className="mx-auto max-w-[var(--container-outer)] px-8 lg:px-10">
+        <div className="mx-auto max-w-[var(--container-content)]">
           <h2 className="font-heading text-[40px] font-medium leading-[1.1] tracking-[-0.015em] text-[#141414] lg:text-[40px]">
             Use cases
           </h2>

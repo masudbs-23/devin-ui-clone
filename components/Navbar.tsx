@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { ChevronDown, Menu, X } from "lucide-react";
 import { PukuMark } from "./BrandIcon";
 import Link from "next/link";
-import { NAV_ITEMS } from "../lib/constants";
+import { NAV_ITEMS, CONTAINER_WIDTHS } from "../lib/constants";
 
 export function Navbar() {
   const [open, setOpen] = useState(false);
@@ -20,8 +20,8 @@ export function Navbar() {
 
   return (
     <header className="sticky top-0 z-50 w-full bg-[#F7F6F4]">
-      <div className="mx-auto max-w-[1905px] px-8">
-        <div className="mx-auto flex h-[72px] max-w-[1440px] items-center gap-8">
+      <div className="mx-auto max-w-[var(--container-outer)] px-8">
+        <div className="mx-auto flex h-[72px] max-w-[var(--container-navbar)] items-center gap-8">
           <Link href="/" aria-label="Puku home" className="shrink-0 text-[#141414]">
             <PukuMark className="h-[22px] w-[22px]" />
           </Link>

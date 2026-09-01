@@ -3,6 +3,15 @@
 export const SITE_NAME = 'Puku';
 export const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://puku.dev';
 
+// Container widths (max-width values for responsive layouts)
+export const CONTAINER_WIDTHS = {
+  OUTER: '1905px',         // Outer container for 2xl devices
+  NAVBAR: '1440px',        // Navbar content area
+  HERO_IMAGE: '1790px',    // Hero section figure image
+  CONTENT: '1490px',       // Content sections (Usecases, LearnWork)
+  WIDE_CONTENT: '1790px',  // Wide content sections (BuildMore, Clients)
+} as const;
+
 // Navigation
 export const NAV_ITEMS = [
   { label: 'Product', hasMenu: true, href: '/product' },
