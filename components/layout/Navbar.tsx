@@ -13,7 +13,7 @@ export function Navbar() {
   const [mobileOpenMenu, setMobileOpenMenu] = useState<string | null>(null);
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-[1000] bg-dt-bg transition-shadow duration-150 ease-out">
+    <header className="sticky top-0 left-0 right-0 z-[1000] bg-[#F7F6F5] transition-shadow duration-150 ease-out">
       <div className="flex items-center justify-between max-w-[1440px] mx-auto px-5 md:px-10 lg:px-12 xl:px-15 py-[18px] box-border h-[66px]">
           <div className="flex items-center gap-5 xl:gap-[40px] min-w-0" style={{ width: '527px' }}>
             <Link href="/" aria-label="Puku home" className="shrink-0 text-[#141414]">

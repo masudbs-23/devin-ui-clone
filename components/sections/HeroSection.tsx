@@ -34,11 +34,11 @@ export function HeroSection() {
             Contact sales
           </a>
         </div>
-        <figure className="mx-auto w-full max-w-[var(--container-hero-image)] h-[1032px] overflow-hidden rounded-[12px] mb-24">
+        <figure className="mx-auto w-full max-w-[1920px] overflow-hidden rounded-[10px] drop-shadow-[0_0_8px_#ddd]">
           <img
             src={IMAGES.HERO}
             alt="Puku, the AI software engineer product interface"
-            className="block h-full w-full object-cover"
+            className="block w-[1790px] h-[1032px] object-cover"
             loading="eager"
           />
         </figure>
