@@ -55,7 +55,7 @@ export function Navbar() {
               Get a Demo
             </a>
             <button
-              className="rounded-[2px] border border-[#E0DFDD] px-[16px] py-[10px] font-heading text-[14px] leading-[1.4] font-medium text-[#141414] transition-colors hover:border-[#141414] "
+              className="px-2 font-heading text-[14px] leading-[1.4] no-underline whitespace-nowrap transition-opacity duration-150 ease-out cursor-pointer hover:opacity-70 text-[#141414] font-medium border border-dt-black bg-transparent h-[30px]"
             >
               Download
             </button>
@@ -63,7 +63,7 @@ export function Navbar() {
               href="https://puku.sh/login?next=%2F"
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-[#141414] px-[16px] py-[10px] font-heading text-[14px] leading-[1.4] font-medium text-[#FFFFFF] rounded-[2px] transition-opacity hover:opacity-85"
+              className="inline-flex items-center font-heading text-[14px] leading-[1.4] no-underline whitespace-nowrap transition-opacity duration-150 ease-out cursor-pointer hover:opacity-70 text-[#141414] font-medium border border-dt-black bg-black text-white px-[12px] text-dt-text-inverse-adaptive bg-dt-black h-[30px]"
             >
               Log in
             </a>
@@ -143,7 +143,7 @@ export function Navbar() {
               </a>
               <button
                 onClick={close}
-                className="rounded-[8px] border border-[#E0DFDD] px-[16px] py-[10px] font-heading text-[14px] leading-[1.4] font-medium text-[#141414] text-center"
+                className="inline-flex box-border items-center justify-center font-heading text-[14px] leading-[1.4] [text-box:normal] no-underline whitespace-nowrap rounded-[2px] transition-opacity duration-150 ease-out cursor-pointer hover:opacity-80 pt-[5px] pb-[4px] px-[11px] text-dt-text border border-dt-black bg-transparent h-[30px]"
               >
                 Download
               </button>
@@ -152,7 +152,7 @@ export function Navbar() {
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={close}
-                className="rounded-[8px] bg-[#141414] px-[16px] py-[10px] font-heading text-[14px] leading-[1.4] font-medium text-[#FFFFFF] text-center"
+                className="inline-flex box-border items-center justify-center font-heading text-[14px] leading-[1.4] [text-box:normal] no-underline whitespace-nowrap rounded-[2px] transition-opacity duration-150 ease-out cursor-pointer hover:opacity-80 pt-[6px] pb-[5px] px-[12px] text-dt-text-inverse-adaptive bg-dt-black h-[30px]"
               >
                 Log in
               </a>
