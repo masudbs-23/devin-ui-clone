@@ -9,7 +9,7 @@ export function ClientsSection() {
             Industry leaders choose to
           </p>
           <h2 id="clients-heading" className="text-center text-[40px] min-[940px]:text-[64px] font-semibold leading-tight text-[#141414] tracking-[-0.01em] mb-6">
-            Build with <span className="text-[#2200FF]">Devin</span>
+            Build with <span className="text-[#2200FF]">Puku</span>
           </h2>
           <button 
             className="mx-auto flex justify-center bg-[#141414] border border-[#141414] px-5 py-2.5 font-semibold text-[14px] text-white rounded-full hover:bg-[#2A2A2A] transition-all"
@@ -19,11 +19,11 @@ export function ClientsSection() {
           </button>
         </header>
 
-        <ul className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3 md:gap-4 w-full justify-items-center" role="list">
+        <ul className="grid grid-cols-4 sm:grid-cols-4 md:grid-cols-4 lg:grid-cols-5 gap-3 md:gap-4 w-full justify-items-center" role="list">
           {CLIENTS.map((client) => (
             <li key={client.name} className="w-full flex justify-center">
-              <div className="bg-[#EFEFEF] rounded-xl flex items-center justify-center w-full max-w-[351px] h-[125px] transition-all hover:bg-[#E3E3E2] hover:border-[#141414]/30">
-                <span className="text-[#5F5F5D] text-[15px] min-[940px]:text-[16px] font-semibold tracking-tight">{client.name}</span>
+              <div className="bg-[#EFEFEF] rounded-[6px] sm:rounded-[6px] lg:rounded-xl xl:rounded-xl flex items-center justify-center w-[115px] h-[50px] sm:w-[190px] sm:h-[68px] lg:w-[230px] lg:h-[82px] xl:w-[351px] xl:h-[125px] transition-all hover:bg-[#E3E3E2] hover:border-[#141414]/30">
+                <span className="text-[#5F5F5D] text-[12px] sm:text-[14px] lg:text-[15px] xl:text-[16px] font-semibold tracking-tight">{client.name}</span>
               </div>
             </li>
           ))}
