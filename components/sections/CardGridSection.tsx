@@ -1,12 +1,22 @@
 "use client";
 
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import { motion, useScroll, useTransform, useMotionValueEvent, AnimatePresence } from "framer-motion";
 
 export function CardGridSection() {
   const sectionRef = useRef<HTMLDivElement>(null);
   const [isExpanded, setIsExpanded] = useState<boolean>(false);
   const [hoveredCard, setHoveredCard] = useState<number | null>(null);
+  const [isMobile, setIsMobile] = useState<boolean>(false);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   const { scrollYProgress } = useScroll({
     target: sectionRef,
@@ -56,20 +66,110 @@ export function CardGridSection() {
     { id: 2, title: "Card 3-6", desc: "Description for Card 3-6" },
   ];
 
+  const iconTiles = [
+    { icon: "grid", color: "#c7c8cb" },
+    { icon: "hexagon", color: "#c7c8cb" },
+    { icon: "triangle", color: "#c7c8cb" },
+    { icon: "x", color: "#c7c8cb" },
+    { icon: "circle", color: "#c7c8cb" },
+    { icon: "star", color: "#c7c8cb" },
+  ];
+
+  const centerTiles = [
+    { icon: "mountain", color: "#6c63ff" },
+    { icon: "ellipse", color: "#7c3aed" },
+    { icon: "dots", color: "#f97316" },
+    { icon: "cross", color: "#111318" },
+    { icon: "code", color: "#2563eb" },
+    { icon: "heart", color: "#ec4899" },
+    { icon: "bolt", color: "eab308" },
+  ];
+
   return (
     <section ref={sectionRef} className="py-20 bg-white relative min-h-[1600px] pb-32 w-full">
-      <div className="w-full mx-auto relative px-4">
+      <div className="w-full mx-auto relative ">
         {/* Sticky Center Title and Description */}
-        <div className={`${!isExpanded ? 'sticky top-28' : ''} z-0 text-center mb-16 pt-32 pb-64 pointer-events-none`}>
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-ink pointer-events-auto">
+        <div className={`${!isExpanded && !isMobile ? 'sticky top-28' : ''} z-0 text-center mb-16 pt-12 md:pt-32 pb-32 md:pb-64 pointer-events-none`}>
+          <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold mb-4 text-ink pointer-events-auto">
             Section Title
           </h2>
-          <p className="text-lg text-ink/70 leading-relaxed max-w-2xl mx-auto pointer-events-auto">
+          <p className="text-sm md:text-lg text-ink/70 leading-relaxed max-w-2xl mx-auto pointer-events-auto">
             This is the description for the section. It provides context about the cards below.
           </p>
         </div>
 
-        {/* Full Width Card Grid */}
+        {/* Mobile Layout - Icon Grid */}
+        {isMobile && (
+          <div className="relative z-10 mb-16 max-w-full mx-auto">
+            <div className="grid grid-cols-[1fr_1.15fr_1fr] gap-2">
+              {/* Left Column */}
+              <div className="flex flex-col gap-2">
+                {iconTiles.map((tile, idx) => (
+                  <div key={idx} className="bg-[#f2f2f3] flex items-center justify-center max-w-[225px] h-[281px] rounded-lg">
+                    <div className=""  />
+                  </div>
+                ))}
+              </div>
+
+              {/* Middle Column - Offset */}
+              <div className="flex flex-col gap-2 -translate-y-3 mt-[-70px]">
+                {centerTiles.map((tile, idx) => (
+                  <div key={idx} className="bg-[#f2f2f3] flex items-center justify-center max-w-[225px] h-[281px] rounded-lg">
+                    <div  />
+                  </div>
+                ))}
+              </div>
+
+              {/* Right Column */}
+              <div className="flex flex-col gap-2">
+                {iconTiles.map((tile, idx) => (
+                  <div key={idx} className="bg-[#f2f2f3] flex items-center justify-center max-w-[225px] h-[281px] rounded-lg">
+                    <div />
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Feature Section */}
+            <div className="mt-8 flex flex-col gap-4 p-4">
+              {/* GitHub */}
+              <div className="flex gap-3 items-start h-[700px] ">
+                <div className="w-6 h-6 flex-none mt-0.5 bg-black rounded-full" />
+                <div>
+                  <h3 className="text-base font-semibold mb-1">GitHub</h3>
+                  <p className="text-xs text-gray-600 leading-relaxed">
+                    Reads open PRs the way your team does — picking up review feedback and threaded discussion to get each PR approved and merged.
+                  </p>
+                </div>
+              </div>
+
+              {/* Linear */}
+              <div className="flex gap-3 items-start h-[700px] ">
+                <div className="w-6 h-6 flex-none mt-0.5 bg-purple-500 rounded-full" />
+                <div>
+                  <h3 className="text-base font-semibold mb-1">Linear</h3>
+                  <p className="text-xs text-gray-600 leading-relaxed">
+                    Manages issues and project tracking with seamless integration for efficient workflow.
+                  </p>
+                </div>
+              </div>
+
+              {/* Slack */}
+              <div className="flex gap-3 items-start h-[700px] ">
+                <div className="w-6 h-6 flex-none mt-0.5 bg-green-500 rounded-full" />
+                <div>
+                  <h3 className="text-base font-semibold mb-1">Slack</h3>
+                  <p className="text-xs text-gray-600 leading-relaxed">
+                    Real-time communication and notifications to keep your team aligned and informed.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
+
+        {/* Desktop Layout - Full Width Card Grid */}
+        {!isMobile && (
         <div className="relative z-10 grid grid-cols-1 md:grid-cols-[auto_1fr_2fr_1fr_auto] gap-3 items-start mb-16 justify-center">
           
           {/* Grid 1: Positioned significantly higher initially (-mt-36) */}
@@ -181,8 +281,10 @@ export function CardGridSection() {
           </motion.div>
 
         </div>
+        )}
 
-        {/* bottom card section */}
+        {/* bottom card section - Desktop only */}
+        {!isMobile && (
         <div className="relative z-20 w-full mx-auto min-h-[675px] pt-6 overflow-hidden">
           <AnimatePresence mode="wait">
             {isExpanded && (
@@ -257,6 +359,7 @@ export function CardGridSection() {
             )}
           </AnimatePresence>
         </div>
+        )}
       </div>
     </section>
   );
