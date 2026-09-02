@@ -100,7 +100,7 @@ export function CardGridSection() {
 
         {/* Mobile Layout - Icon Grid */}
         {isMobile && (
-          <div className="relative z-10 mb-16 max-w-full mx-auto">
+          <div className="relative z-10 mb-16 max-w-full mx-auto mt-[-150px]">
             <div className="grid grid-cols-[1fr_1.15fr_1fr] gap-2">
               {/* Left Column */}
               <div className="flex flex-col gap-2">
