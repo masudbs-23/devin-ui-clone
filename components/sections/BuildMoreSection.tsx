@@ -4,21 +4,23 @@ export function BuildMoreSection() {
   return (
     <section className="px-4 py-20 bg-[#F7F6F4]" aria-labelledby="build-more-heading">
       <div className="max-w-[var(--container-outer)] mx-auto px-8">
-        <div className="mx-auto max-w-[var(--container-wide-content)] flex flex-col lg:flex-row justify-between items-start gap-8 mb-12">
+        <div className="mx-auto max-w-[var(--container-wide-content)] flex flex-col md:flex-row lg:flex-row justify-between items-start gap-8 mb-12">
           {/* Left side - full width on mobile/tablet */}
           <div className="w-full lg:flex-1">
-            <h2 id="build-more-heading" className="text-5xl lg:text-6xl font-medium text-[#141414] leading-tight tracking-[-0.015em]">
+            <div className='w-full md:max-w-[483px] xl:max-w-[619px]'>
+              <h2 id="build-more-heading" className="text-[58px] xl:text-[64px] font-medium text-[#141414] leading-tight tracking-[-0.015em]">
               Build more with<br />
               <span className="text-[#2200FF]">Puku</span>
             </h2>
             <button className="mt-8 px-6 py-3 bg-[#141414] text-[#FFFFFF] rounded-[8px] text-[14px] font-medium hover:opacity-90 transition-opacity">
               Get started
             </button>
+            </div>
           </div>
 
           {/* Right side - card full width on mobile/tablet */}
           <div className="w-full lg:flex-1">
-            <article className="bg-[#EDEDED] p-8 rounded-[20px] w-full lg:w-[619px] h-[278px] ">
+            <article className="bg-[#EDEDED] p-8 rounded-[20px] w-full md:max-w-[483px] xl:max-w-[619px] h-[278px]">
               <h3 className="text-[23px] font-medium mb-4 text-[#141414]">
                 Need Puku for your enterprise?
               </h3>

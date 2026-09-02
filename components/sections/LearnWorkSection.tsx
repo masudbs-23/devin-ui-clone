@@ -3,12 +3,12 @@ import { IMAGES, PROJECT_TASKS } from '../../lib/constants';
 
 export function LearnWorkSection() {
   return (
-    <section className="relative z-[1] bg-[#0E0E0E] min-h-screen text-[#F5F5F5] lg:h-[1917px] lg:py-0">
-      <div className="mx-auto max-w-[1905px] px-8 lg:px-10 h-full flex items-center justify-center">
-        <div className="flex justify-center   lg:flex-row gap-6" style={{ height: '1517px', width: '1790px' }}>
+    <section className="relative z-[1] bg-[#0E0E0E] min-h-screen text-[#F5F5F5] py-20 lg:py-32">
+      <div className="mx-auto max-w-[var(--container-outer)] px-4 sm:px-6 md:px-8 lg:px-10 h-full flex items-center justify-center">
+        <div className="flex flex-col md:flex-row justify-center gap-4 md:gap-6 w-full max-w-[var(--container-content)] mx-auto">
           {/* Left Grid */}
-          <div className="flex flex-col gap-6" style={{ width: '734px' }}>
-            <div className="flex flex-col mt-32" style={{ height: '231px' }}>
+          <div className="flex flex-col gap-4 md:gap-6 w-full md:w-1/2">
+            <div className="flex flex-col mt-8 md:mt-12 lg:mt-32">
               <h2 className="font-heading text-[40px] font-medium leading-[1.1] tracking-[-0.015em] lg:text-[64px]">
                 Learn &amp; work
                 <br />
@@ -18,7 +18,7 @@ export function LearnWorkSection() {
                 Puku is built for engineering teams with complex, multi-repo projects.
               </p>
             </div>
-            <div className="relative flex flex-col overflow-hidden rounded-[12px] bg-[#1C1C1E] mt-32" style={{ height: '587px', width: '734px' }}>
+            <div className="relative flex flex-col overflow-hidden rounded-[12px] bg-[#1C1C1E] mt-8 md:mt-12 lg:mt-32 w-full">
               <div className="p-8 pb-0 lg:p-10">
                 <h3 className="text-[23px] font-medium leading-[1.25]">
                   Learns your codebase &amp;
@@ -32,8 +32,8 @@ export function LearnWorkSection() {
           </div>
 
           {/* Right Grid */}
-          <div className="flex flex-col gap-6" style={{ width: '734px' }}>
-            <div className="relative flex flex-col overflow-hidden rounded-[12px] bg-[#1C1C1E]" style={{ height: '793px', width: '734px' }}>
+          <div className="flex flex-col gap-4 md:gap-6 w-full md:w-1/2">
+            <div className="relative flex flex-col overflow-hidden rounded-[12px] bg-[#1C1C1E] w-full">
               <div className="p-8 pb-0 lg:p-10">
                 <span className="mb-6 inline-block rounded-[6px] bg-[#2C2C2E] px-3 py-1.5 font-mono text-[13px] uppercase tracking-wide text-[#F5F5F5]">
                   Collaborate
@@ -48,7 +48,7 @@ export function LearnWorkSection() {
                 <img src={IMAGES.BENTO_COLLAB} alt="Create automation, add a ticket for each task" loading="lazy" className="block h-auto w-full" />
               </div>
             </div>
-            <div className="relative flex flex-col overflow-hidden rounded-[12px] bg-[#1C1C1E]" style={{ height: '756px', width: '734px' }}>
+            <div className="relative flex flex-col overflow-hidden rounded-[12px] bg-[#1C1C1E] w-full">
               <div className="p-8 pb-0 lg:p-10">
                 <h3 className="text-[23px] font-medium leading-[1.25]">Multi-week, multi-repo projects</h3>
                 <p className="mt-4 max-w-[52ch] text-[14px] leading-[1.5] text-[#9A9A98]">
