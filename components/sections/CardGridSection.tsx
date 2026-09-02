@@ -11,7 +11,7 @@ export function CardGridSection() {
 
   useEffect(() => {
     const checkMobile = () => {
-      setIsMobile(window.innerWidth < 768);
+      setIsMobile(window.innerWidth < 935);
     };
     checkMobile();
     window.addEventListener('resize', checkMobile);
