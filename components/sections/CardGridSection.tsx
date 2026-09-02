@@ -105,7 +105,7 @@ export function CardGridSection() {
               {/* Left Column */}
               <div className="flex flex-col gap-2">
                 {iconTiles.map((tile, idx) => (
-                  <div key={idx} className="bg-[#f2f2f3] flex items-center justify-center max-w-[225px] h-[281px] rounded-lg">
+                  <div key={idx} className="bg-[#f2f2f3] flex items-center justify-center w-full h-[375px] rounded-lg">
                     <div className=""  />
                   </div>
                 ))}
@@ -114,7 +114,7 @@ export function CardGridSection() {
               {/* Middle Column - Offset */}
               <div className="flex flex-col gap-2 -translate-y-3 mt-[-70px]">
                 {centerTiles.map((tile, idx) => (
-                  <div key={idx} className="bg-[#f2f2f3] flex items-center justify-center max-w-[225px] h-[281px] rounded-lg">
+                  <div key={idx} className="bg-[#f2f2f3] flex items-center justify-center w-full h-[375px] rounded-lg">
                     <div  />
                   </div>
                 ))}
@@ -123,7 +123,7 @@ export function CardGridSection() {
               {/* Right Column */}
               <div className="flex flex-col gap-2">
                 {iconTiles.map((tile, idx) => (
-                  <div key={idx} className="bg-[#f2f2f3] flex items-center justify-center max-w-[225px] h-[281px] rounded-lg">
+                  <div key={idx} className="bg-[#f2f2f3] flex items-center justify-center w-full h-[375px] rounded-lg">
                     <div />
                   </div>
                 ))}
