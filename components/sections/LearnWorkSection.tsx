@@ -3,34 +3,22 @@ import { IMAGES, PROJECT_TASKS } from '../../lib/constants';
 
 export function LearnWorkSection() {
   return (
-    <section className="relative z-[1] bg-[#0E0E0E] py-20 text-[#F5F5F5] lg:py-32">
-      <div className="mx-auto max-w-[var(--container-outer)] px-8 lg:px-10">
-        <div className="mx-auto max-w-[var(--container-content)]">
-          <h2 className="font-heading text-[40px] font-medium leading-[1.1] tracking-[-0.015em] lg:text-[40px]">
-            Learn &amp; work
-            <br />
-            <span className="text-[#2200FF]">together</span>
-          </h2>
-          <p className="mt-5 max-w-[35ch] text-[16px] leading-[1.5] text-[#9A9A98]">
-            Puku is built for engineering teams with complex, multi-repo projects.
-          </p>
-          <div className="mt-14 grid grid-cols-1 gap-4 lg:grid-cols-2 lg:gap-5">
-            <div className="relative flex flex-col overflow-hidden rounded-[12px] bg-[#1C1C1E] lg:order-2">
-              <div className="p-8 pb-0 lg:p-10">
-                <span className="mb-6 inline-block rounded-[6px] bg-[#2C2C2E] px-3 py-1.5 font-mono text-[13px] uppercase tracking-wide text-[#F5F5F5]">
-                  Collaborate
-                </span>
-                <h3 className="text-[23px] font-medium leading-[1.25]">Works where your team works</h3>
-                <p className="mt-4 max-w-[52ch] text-[14px] leading-[1.5] text-[#9A9A98]">
-                  Ask Puku to triage Datadog incidents, route Slack messages, and tackle Linear tickets. Or automate
-                  entirely using the Puku API and Puku Automations.
-                </p>
-              </div>
-              <div className="ml-auto mt-6 w-[92%] overflow-hidden">
-                <img src={IMAGES.BENTO_COLLAB} alt="Create automation, add a ticket for each task" loading="lazy" className="block h-auto w-full" />
-              </div>
+    <section className="relative z-[1] bg-[#0E0E0E] min-h-screen text-[#F5F5F5] lg:h-[1917px] lg:py-0">
+      <div className="mx-auto max-w-[1905px] px-8 lg:px-10 h-full flex items-center justify-center">
+        <div className="flex justify-center   lg:flex-row gap-6" style={{ height: '1517px', width: '1790px' }}>
+          {/* Left Grid */}
+          <div className="flex flex-col gap-6" style={{ width: '734px' }}>
+            <div className="flex flex-col mt-32" style={{ height: '231px' }}>
+              <h2 className="font-heading text-[40px] font-medium leading-[1.1] tracking-[-0.015em] lg:text-[64px]">
+                Learn &amp; work
+                <br />
+                <span className="text-[#2200FF]">together</span>
+              </h2>
+              <p className="mt-5 max-w-[35ch] text-[16px] leading-[1.5] text-[#9A9A98]">
+                Puku is built for engineering teams with complex, multi-repo projects.
+              </p>
             </div>
-            <div className="relative flex flex-col overflow-hidden rounded-[12px] bg-[#1C1C1E] lg:order-1 lg:translate-y-[12%]">
+            <div className="relative flex flex-col overflow-hidden rounded-[12px] bg-[#1C1C1E] mt-32" style={{ height: '587px', width: '734px' }}>
               <div className="p-8 pb-0 lg:p-10">
                 <h3 className="text-[23px] font-medium leading-[1.25]">
                   Learns your codebase &amp;
@@ -41,7 +29,11 @@ export function LearnWorkSection() {
                 <img src={IMAGES.BENTO_KNOWLEDGE} alt="Add knowledge to Devin" loading="lazy" className="block h-auto w-full" />
               </div>
             </div>
-            <div className="relative flex flex-col overflow-hidden rounded-[12px] bg-[#1C1C1E] lg:order-3">
+          </div>
+
+          {/* Right Grid */}
+          <div className="flex flex-col gap-6" style={{ width: '734px' }}>
+            <div className="relative flex flex-col overflow-hidden rounded-[12px] bg-[#1C1C1E]" style={{ height: '793px', width: '734px' }}>
               <div className="p-8 pb-0 lg:p-10">
                 <span className="mb-6 inline-block rounded-[6px] bg-[#2C2C2E] px-3 py-1.5 font-mono text-[13px] uppercase tracking-wide text-[#F5F5F5]">
                   Collaborate
@@ -56,7 +48,7 @@ export function LearnWorkSection() {
                 <img src={IMAGES.BENTO_COLLAB} alt="Create automation, add a ticket for each task" loading="lazy" className="block h-auto w-full" />
               </div>
             </div>
-            <div className="relative flex flex-col overflow-hidden rounded-[12px] bg-[#1C1C1E] lg:order-4">
+            <div className="relative flex flex-col overflow-hidden rounded-[12px] bg-[#1C1C1E]" style={{ height: '756px', width: '734px' }}>
               <div className="p-8 pb-0 lg:p-10">
                 <h3 className="text-[23px] font-medium leading-[1.25]">Multi-week, multi-repo projects</h3>
                 <p className="mt-4 max-w-[52ch] text-[14px] leading-[1.5] text-[#9A9A98]">
