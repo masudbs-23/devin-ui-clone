@@ -9,7 +9,7 @@ export function HeroSection() {
           href="#"
           className="mb-8 inline-flex items-center gap-2 rounded-full bg-[#0E0E0E] py-[5px] pl-[7px] pr-[10px] text-[13px] text-[#F5F5F5] shadow-[0_4px_16px_rgba(0,0,0,0.22),0_1px_3px_rgba(0,0,0,0.14)] transition-transform duration-200 hover:scale-[1.02] h-[32.5px] w-[258px] whitespace-nowrap lg:mt-2"
         >
-          <span className="rounded-full bg-[#CFC0FF] px-[9px] py-[3px] font-mono text-[11px] font-medium uppercase tracking-[0.04em] text-[#0E0E0E]">
+          <span className="rounded-full bg-[#2200FF] px-[9px] py-[3px] font-mono text-[11px] font-medium uppercase tracking-[0.04em] text-[#fff]">
             New
           </span>
           <span className="font-medium">Introducing Security Swarm</span>

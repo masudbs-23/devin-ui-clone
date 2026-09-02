@@ -87,8 +87,8 @@ export function Navbar() {
             className="fixed inset-0 z-[9998] bg-black/50 lg:hidden"
             onClick={close}
           />
-          <div className="fixed inset-0 z-[9999] flex flex-col bg-white lg:hidden">
-            <div className="flex h-[72px] items-center border-b border-[#E0DFDD] bg-white px-[10px]">
+          <div className="fixed inset-0 z-[9999] flex flex-col pl-4 pr-4 bg-white lg:hidden">
+            <div className="flex h-[72px] items-center  bg-white px-[10px]">
               <PukuMark className="h-[22px] w-[22px] text-[#141414]" />
               <button
                 type="button"
@@ -110,7 +110,7 @@ export function Navbar() {
                       close();
                     }
                   }}
-                  className="flex items-center justify-between border-b border-[#E0DFDD] py-4 font-heading text-[24px] leading-[1.4] font-medium tracking-[-0.02em] w-full text-left text-[#141414]"
+                  className="flex items-center justify-between  py-4 font-medium text-[18px] leading-[1.4] tracking-[-0.02em] w-full text-left text-[#141414]"
                   
                 >
                   {item.label}
@@ -123,7 +123,7 @@ export function Navbar() {
                   )}
                 </a>
                 {item.hasMenu && mobileOpenMenu === item.label && (
-                  <div className="pl-4 py-2 border-b border-[#E0DFDD]">
+                  <div className="pl-4 py-2 ">
                     <ul className="space-y-2">
                       <li className="font-heading text-[16px] leading-[1.4] text-[#5F5F5D] py-2">Sub-item 1</li>
                       <li className="font-heading text-[16px] leading-[1.4] text-[#5F5F5D] py-2">Sub-item 2</li>
