@@ -15,7 +15,7 @@ export function HeroSection() {
           <span className="font-medium">Introducing Security Swarm</span>
           <ArrowUpRight className="h-4 w-4 text-white/60" strokeWidth={1.5} />
         </a>
-        <h1 className="mb-8 text-center font-heading text-[13vw] font-medium leading-[1.05] tracking-[-0.02em] text-[#141414] lg:whitespace-nowrap text-[59px] lg:text-[72px] font-[500]">
+        <h1 className="mb-8 text-center font-heading text-[13vw] font-medium leading-[1.05] tracking-[-0.02em] text-[#141414] lg:whitespace-nowrap text-[48px] md:text-[59px] lg:text-[72px] font-[500]">
           Puku, the AI
           <br />
           software engineer
