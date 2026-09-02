@@ -37,7 +37,7 @@ export function CardGridSection() {
   const card_5_3_Y = useTransform(scrollYProgress, [0, 0.70], [0, -64]);
 
   // Card 3-4, 3-5, 3-6 translation down to align with Card 4-3 level
-  const cardsTranslateY = useTransform(scrollYProgress, [0.15, 0.70], [0, 220]);
+  const cardsTranslateY = useTransform(scrollYProgress, [0.15, 0.70], [0, 430]);
   const cardsScale = useTransform(scrollYProgress, [0.15, 0.70], [1, 1.04]);
   const cardsOpacity = useTransform(scrollYProgress, [0.65, 0.70], [1, 0]);
 
