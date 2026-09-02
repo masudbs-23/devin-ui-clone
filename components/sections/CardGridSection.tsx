@@ -8,10 +8,28 @@ export function CardGridSection() {
   const [isExpanded, setIsExpanded] = useState<boolean>(false);
   const [hoveredCard, setHoveredCard] = useState<number | null>(null);
   const [isMobile, setIsMobile] = useState<boolean>(false);
+  const [cardHeight, setCardHeight] = useState<number>(375);
 
   useEffect(() => {
     const checkMobile = () => {
-      setIsMobile(window.innerWidth < 935);
+      const width = window.innerWidth;
+      setIsMobile(width < 935);
+
+      // Calculate card height based on screen width
+      // At 935px: 375px, at 400px: 239px
+      const minWidth = 400;
+      const maxWidth = 935;
+      const minHeight = 239;
+      const maxHeight = 375;
+
+      if (width >= maxWidth) {
+        setCardHeight(maxHeight);
+      } else if (width <= minWidth) {
+        setCardHeight(minHeight);
+      } else {
+        const ratio = (width - minWidth) / (maxWidth - minWidth);
+        setCardHeight(minHeight + ratio * (maxHeight - minHeight));
+      }
     };
     checkMobile();
     window.addEventListener('resize', checkMobile);
@@ -105,7 +123,7 @@ export function CardGridSection() {
               {/* Left Column */}
               <div className="flex flex-col gap-2">
                 {iconTiles.map((tile, idx) => (
-                  <div key={idx} className="bg-[#f2f2f3] flex items-center justify-center w-full h-[375px] rounded-lg">
+                  <div key={idx} className="bg-[#f2f2f3] flex items-center justify-center w-full rounded-lg" style={{ height: `${cardHeight}px` }}>
                     <div className=""  />
                   </div>
                 ))}
@@ -114,7 +132,7 @@ export function CardGridSection() {
               {/* Middle Column - Offset */}
               <div className="flex flex-col gap-2 -translate-y-3 mt-[-70px]">
                 {centerTiles.map((tile, idx) => (
-                  <div key={idx} className="bg-[#f2f2f3] flex items-center justify-center w-full h-[375px] rounded-lg">
+                  <div key={idx} className="bg-[#f2f2f3] flex items-center justify-center w-full rounded-lg" style={{ height: `${cardHeight}px` }}>
                     <div  />
                   </div>
                 ))}
@@ -123,7 +141,7 @@ export function CardGridSection() {
               {/* Right Column */}
               <div className="flex flex-col gap-2">
                 {iconTiles.map((tile, idx) => (
-                  <div key={idx} className="bg-[#f2f2f3] flex items-center justify-center w-full h-[375px] rounded-lg">
+                  <div key={idx} className="bg-[#f2f2f3] flex items-center justify-center w-full rounded-lg" style={{ height: `${cardHeight}px` }}>
                     <div />
                   </div>
                 ))}
