@@ -1,39 +1,68 @@
 "use client";
 
-import React, { useRef, useState, useEffect } from "react";
+import React, { useRef, useState, useEffect, useMemo } from "react";
 import { motion, useScroll, useTransform, useMotionValueEvent, AnimatePresence } from "framer-motion";
+
+// Constants
+const BREAKPOINTS = {
+  MOBILE: 935,
+  MIN_WIDTH: 400,
+  MAX_WIDTH: 935,
+} as const;
+
+const CARD_HEIGHTS = {
+  MIN: 239,
+  MAX: 375,
+} as const;
+
+const SCROLL_THRESHOLDS = {
+  PARALLAX_END: 0.70,
+  CARD_ALIGN_END: 0.45,
+  EXPANSION_START: 0.15,
+  FADE_START: 0.65,
+} as const;
+
+// Types
+interface IconTile {
+  icon: string;
+  color: string;
+}
+
+interface CardData {
+  id: number;
+  title: string;
+  desc: string;
+}
+
+// Helper functions
+const calculateCardHeight = (width: number): number => {
+  const { MIN_WIDTH, MAX_WIDTH } = BREAKPOINTS;
+  const { MIN, MAX } = CARD_HEIGHTS;
+
+  if (width >= MAX_WIDTH) return MAX;
+  if (width <= MIN_WIDTH) return MIN;
+
+  const ratio = (width - MIN_WIDTH) / (MAX_WIDTH - MIN_WIDTH);
+  return MIN + ratio * (MAX - MIN);
+};
 
 export function CardGridSection() {
   const sectionRef = useRef<HTMLDivElement>(null);
   const [isExpanded, setIsExpanded] = useState<boolean>(false);
   const [hoveredCard, setHoveredCard] = useState<number | null>(null);
   const [isMobile, setIsMobile] = useState<boolean>(false);
-  const [cardHeight, setCardHeight] = useState<number>(375);
+  const [cardHeight, setCardHeight] = useState<number>(CARD_HEIGHTS.MAX);
 
   useEffect(() => {
-    const checkMobile = () => {
+    const handleResize = () => {
       const width = window.innerWidth;
-      setIsMobile(width < 935);
-
-      // Calculate card height based on screen width
-      // At 935px: 375px, at 400px: 239px
-      const minWidth = 400;
-      const maxWidth = 935;
-      const minHeight = 239;
-      const maxHeight = 375;
-
-      if (width >= maxWidth) {
-        setCardHeight(maxHeight);
-      } else if (width <= minWidth) {
-        setCardHeight(minHeight);
-      } else {
-        const ratio = (width - minWidth) / (maxWidth - minWidth);
-        setCardHeight(minHeight + ratio * (maxHeight - minHeight));
-      }
+      setIsMobile(width < BREAKPOINTS.MOBILE);
+      setCardHeight(calculateCardHeight(width));
     };
-    checkMobile();
-    window.addEventListener('resize', checkMobile);
-    return () => window.removeEventListener('resize', checkMobile);
+
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
   }, []);
 
   const { scrollYProgress } = useScroll({
@@ -41,41 +70,37 @@ export function CardGridSection() {
     offset: ["start start", "end end"],
   });
 
-  // Upward parallax motion for side columns
-  const grid1Y = useTransform(scrollYProgress, [0, 0.70], [0, -180]);
-  const grid2Y = useTransform(scrollYProgress, [0, 0.70], [0, -100]);
-  const grid4Y = useTransform(scrollYProgress, [0, 0.70], [0, -100]);
-  const grid5Y = useTransform(scrollYProgress, [0, 0.70], [0, -180]);
+  // Scroll transforms - Hooks must be called at top level
+  const { PARALLAX_END, CARD_ALIGN_END, EXPANSION_START, FADE_START } = SCROLL_THRESHOLDS;
 
-  // Serial card upward gap reduction (Card X-2 and X-3 slide UP towards Card X-1 as user scrolls)
-  const card_1_2_Y = useTransform(scrollYProgress, [0, 0.70], [0, -32]);
-  const card_1_3_Y = useTransform(scrollYProgress, [0, 0.70], [0, -64]);
+  // Side column parallax
+  const grid1Y = useTransform(scrollYProgress, [0, PARALLAX_END], [0, -180]);
+  const grid2Y = useTransform(scrollYProgress, [0, PARALLAX_END], [0, -100]);
+  const grid4Y = useTransform(scrollYProgress, [0, PARALLAX_END], [0, -100]);
+  const grid5Y = useTransform(scrollYProgress, [0, PARALLAX_END], [0, -180]);
 
-  const card_2_2_Y = useTransform(scrollYProgress, [0, 0.70], [0, -32]);
-  const card_2_3_Y = useTransform(scrollYProgress, [0, 0.70], [0, -64]);
+  // Serial card gap reduction
+  const card_1_2_Y = useTransform(scrollYProgress, [0, PARALLAX_END], [0, -32]);
+  const card_1_3_Y = useTransform(scrollYProgress, [0, PARALLAX_END], [0, -64]);
+  const card_2_2_Y = useTransform(scrollYProgress, [0, PARALLAX_END], [0, -32]);
+  const card_2_3_Y = useTransform(scrollYProgress, [0, PARALLAX_END], [0, -64]);
+  const card_4_2_Y = useTransform(scrollYProgress, [0, PARALLAX_END], [0, -32]);
+  const card_4_3_Y = useTransform(scrollYProgress, [0, PARALLAX_END], [0, -64]);
+  const card_5_2_Y = useTransform(scrollYProgress, [0, PARALLAX_END], [0, -32]);
+  const card_5_3_Y = useTransform(scrollYProgress, [0, PARALLAX_END], [0, -64]);
 
-  // Card 3-2 & 3-5 start offset higher (-28px) and align into the same position with their row on scroll
-  const card_3_2_Y = useTransform(scrollYProgress, [0, 0.45], [-28, 0]);
-  const card_3_5_Y = useTransform(scrollYProgress, [0, 0.45], [-28, 0]);
+  // Card alignment
+  const card_3_2_Y = useTransform(scrollYProgress, [0, CARD_ALIGN_END], [-28, 0]);
+  const card_3_5_Y = useTransform(scrollYProgress, [0, CARD_ALIGN_END], [-28, 0]);
 
-  const card_4_2_Y = useTransform(scrollYProgress, [0, 0.70], [0, -32]);
-  const card_4_3_Y = useTransform(scrollYProgress, [0, 0.70], [0, -64]);
+  // Bottom cards expansion
+  const cardsTranslateY = useTransform(scrollYProgress, [EXPANSION_START, PARALLAX_END], [0, 430]);
+  const cardsScale = useTransform(scrollYProgress, [EXPANSION_START, PARALLAX_END], [1, 1.04]);
+  const cardsOpacity = useTransform(scrollYProgress, [FADE_START, PARALLAX_END], [1, 0]);
 
-  const card_5_2_Y = useTransform(scrollYProgress, [0, 0.70], [0, -32]);
-  const card_5_3_Y = useTransform(scrollYProgress, [0, 0.70], [0, -64]);
-
-  // Card 3-4, 3-5, 3-6 translation down to align with Card 4-3 level
-  const cardsTranslateY = useTransform(scrollYProgress, [0.15, 0.70], [0, 430]);
-  const cardsScale = useTransform(scrollYProgress, [0.15, 0.70], [1, 1.04]);
-  const cardsOpacity = useTransform(scrollYProgress, [0.65, 0.70], [1, 0]);
-
-  // Trigger layout state transition into bottom section when grid scroll completes (latest > 0.70)
+  // Handle expansion state
   useMotionValueEvent(scrollYProgress, "change", (latest) => {
-    if (latest > 0.70 && !isExpanded) {
-      setIsExpanded(true);
-    } else if (latest <= 0.70 && isExpanded) {
-      setIsExpanded(false);
-    }
+    setIsExpanded(latest > PARALLAX_END);
   });
 
   const cards3Data = [
@@ -118,12 +143,12 @@ export function CardGridSection() {
 
         {/* Mobile Layout - Icon Grid */}
         {isMobile && (
-          <div className="relative z-10 mb-16 max-w-full mx-auto mt-[-150px]">
+          <div className="relative z-10 mb-16 max-w-full mx-auto mt-[-150px]" style={{ '--card-height': `${cardHeight}px` } as React.CSSProperties}>
             <div className="grid grid-cols-[1fr_1.15fr_1fr] gap-2">
               {/* Left Column */}
               <div className="flex flex-col gap-2">
                 {iconTiles.map((tile, idx) => (
-                  <div key={idx} className="bg-[#f2f2f3] flex items-center justify-center w-full rounded-lg" style={{ height: `${cardHeight}px` }}>
+                  <div key={idx} className="bg-[#f2f2f3] flex items-center justify-center w-full rounded-lg" style={{ height: 'var(--card-height)' }}>
                     <div className=""  />
                   </div>
                 ))}
@@ -132,7 +157,7 @@ export function CardGridSection() {
               {/* Middle Column - Offset */}
               <div className="flex flex-col gap-2 -translate-y-3 mt-[-70px]">
                 {centerTiles.map((tile, idx) => (
-                  <div key={idx} className="bg-[#f2f2f3] flex items-center justify-center w-full rounded-lg" style={{ height: `${cardHeight}px` }}>
+                  <div key={idx} className="bg-[#f2f2f3] flex items-center justify-center w-full rounded-lg" style={{ height: 'var(--card-height)' }}>
                     <div  />
                   </div>
                 ))}
@@ -141,7 +166,7 @@ export function CardGridSection() {
               {/* Right Column */}
               <div className="flex flex-col gap-2">
                 {iconTiles.map((tile, idx) => (
-                  <div key={idx} className="bg-[#f2f2f3] flex items-center justify-center w-full rounded-lg" style={{ height: `${cardHeight}px` }}>
+                  <div key={idx} className="bg-[#f2f2f3] flex items-center justify-center w-full rounded-lg" style={{ height: 'var(--card-height)' }}>
                     <div />
                   </div>
                 ))}
